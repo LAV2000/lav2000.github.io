@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: blogs
-permalink: /blogs/
+<!-- permalink: /blogs/ -->
 title:  "Đây là bài đăng đầu tiên!"
 ---
 
