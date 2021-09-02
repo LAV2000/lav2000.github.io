@@ -279,7 +279,7 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: posts
+      type: pages
     values:
       show_date: true
       date_format: "%d-%m-%y"
