@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: posts
 title:  "Đây là bài đăng đầu tiên!"
 ---
 
