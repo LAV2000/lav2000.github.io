@@ -1,7 +1,7 @@
 ---
-layout: post
-categories: blogs
-title: the-first-post
+layout: posts
+categories: Blogs
+title: Bài đăng đầu tiên
 ---
 
 # Xin chào
