@@ -82,25 +82,25 @@
       </button>
     </header>
 
-    <!-- INLINE HEALTH EVALUATION & PLAN OVERVIEW CARD (Collapsible & Always Reactive) -->
-    <div class="px-4 pt-2 pb-1 shrink-0">
-      <div id="eval-card-container" class="w-full bg-zinc-950 text-white rounded-3xl p-3 shadow-md border border-zinc-900 transition-all">
+    <!-- INLINE HEALTH EVALUATION & PLAN OVERVIEW CARD (Compact & Sleek) -->
+    <div class="px-4 pt-1.5 pb-1 shrink-0">
+      <div id="eval-card-container" class="w-full bg-zinc-900 text-white rounded-2xl p-2.5 px-3 shadow-sm border border-zinc-800 transition-all">
         <!-- Summary bar (Click to expand/collapse) -->
-        <div onclick="toggleEvaluationCard()" class="flex items-center justify-between cursor-pointer select-none">
-          <div class="flex items-center gap-2">
-            <span id="eval-card-avatar" class="w-7 h-7 rounded-full bg-white text-black text-xs font-black flex items-center justify-center shrink-0">V</span>
-            <div>
+        <div onclick="toggleEvaluationCard()" class="flex items-center justify-between cursor-pointer select-none gap-2">
+          <div class="flex items-center gap-2 min-w-0 flex-1">
+            <span id="eval-card-avatar" class="w-6 h-6 rounded-full bg-white text-black text-[10px] font-black flex items-center justify-center shrink-0">V</span>
+            <div class="min-w-0 flex-1">
               <div class="flex items-center gap-1.5">
-                <h3 id="eval-card-title" class="text-xs font-bold text-white">Đánh giá & Lộ trình: Lương Anh Văn</h3>
-                <span id="eval-card-tag" class="text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500 text-black uppercase">Skinny-Fat</span>
+                <h3 id="eval-card-title" class="text-xs font-bold text-white truncate">Chỉ số: Lương Anh Văn (1m71)</h3>
+                <span id="eval-card-tag" class="text-[8.5px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0 whitespace-nowrap">Giảm 62kg (60N)</span>
               </div>
-              <p id="eval-card-quick-metrics" class="text-[10px] text-zinc-400 mt-0.5">1m71 • BMI 23.6 • BMR 1.630 • Nạp 1.550 kcal • Nước 2.8L</p>
+              <p id="eval-card-quick-metrics" class="text-[10px] text-zinc-400 truncate mt-0.5">BMI 23.6 ➔ 21.2 • 1.550 kcal • 2.8L nước</p>
             </div>
           </div>
-          <div class="flex items-center gap-1 shrink-0">
-            <span id="eval-card-toggle-text" class="text-[10px] font-bold text-zinc-300">Xem chi tiết</span>
-            <svg id="eval-card-chevron" class="w-3.5 h-3.5 text-zinc-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+          <div class="flex items-center gap-1 shrink-0 text-zinc-400 hover:text-white">
+            <span id="eval-card-toggle-text" class="text-[10px] font-medium">Chi tiết</span>
+            <svg id="eval-card-chevron" class="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </div>
         </div>
@@ -1849,24 +1849,25 @@
       const p = getCurProfile();
       const isVan = p.id === 'van';
 
-      // Inline Card Header
+      // Inline Card Header (Compact & Sleek)
       document.getElementById('eval-card-avatar').textContent = p.shortName.charAt(0);
       document.getElementById('eval-card-avatar').className = isVan 
-        ? "w-7 h-7 rounded-full bg-white text-black text-xs font-black flex items-center justify-center shrink-0" 
-        : "w-7 h-7 rounded-full bg-rose-500 text-white text-xs font-black flex items-center justify-center shrink-0";
+        ? "w-6 h-6 rounded-full bg-white text-black text-[10px] font-black flex items-center justify-center shrink-0" 
+        : "w-6 h-6 rounded-full bg-rose-500 text-white text-[10px] font-black flex items-center justify-center shrink-0";
 
-      const hFormatted = p.height ? ((p.height >= 100 ? (p.height/100).toFixed(2) + "m" : p.height + "cm")) : (isVan ? "1m71" : "1m55");
-      document.getElementById('eval-card-title').textContent = "Đánh giá & Lộ trình: " + p.name + " (" + (isVan ? "Nam • 26t • " : "Nữ • 25t • ") + hFormatted + ")";
+      document.getElementById('eval-card-title').textContent = isVan
+        ? "Chỉ số: Lương Anh Văn (1m71)"
+        : "Chỉ số: Đào Phương Oanh (1m55)";
       
       const tagEl = document.getElementById('eval-card-tag');
-      tagEl.textContent = isVan ? "Skinny-Fat (60 ngày)" : "Siết Idol 1m55 (30 ngày)";
+      tagEl.textContent = isVan ? "Giảm 62kg (60N)" : "Siết 44kg (30N)";
       tagEl.className = isVan 
-        ? "text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500 text-black uppercase" 
-        : "text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-rose-500 text-white uppercase";
+        ? "text-[8.5px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0 whitespace-nowrap" 
+        : "text-[8.5px] font-bold px-1.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 shrink-0 whitespace-nowrap";
 
       document.getElementById('eval-card-quick-metrics').textContent = isVan 
-        ? "1m71 • BMI 23.6 • BMR 1.630 • Nạp 1.550 kcal • Nước 2.8L" 
-        : "1m55 • BMI 21.6 ➔ 18.3 • BMR 1.205 • Nạp 1.200 kcal • Nước 2.2L";
+        ? "BMI 23.6 ➔ 21.2 • 1.550 kcal • 2.8L nước" 
+        : "BMI 21.6 ➔ 18.3 • 1.200 kcal • 2.2L nước";
 
       // Modal Header
       document.getElementById('eval-modal-name').textContent = p.name + " (" + (isVan ? "Nam • 26 tuổi • Chiều cao: 1m71" : "Nữ • 25 tuổi • Chiều cao: 1m55") + ")";
