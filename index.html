@@ -55,77 +55,150 @@
   <!-- Mobile Container Frame -->
   <div class="w-full max-w-[440px] h-[100vh] md:h-[900px] md:max-h-[94vh] bg-white md:rounded-[44px] md:shadow-2xl md:ring-1 md:ring-black/5 flex flex-col relative overflow-hidden transition-all duration-300">
     
-    <!-- Top Bar: Profile Switcher & Target -->
-    <header class="pt-3 px-5 pb-2.5 flex items-center justify-between z-20 shrink-0 border-b border-zinc-100/90 bg-white">
-      <!-- Profile Switcher Dropdown Pill -->
-      <div class="relative">
-        <button onclick="toggleProfileDropdown()" id="profile-switch-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/70 transition-all">
-          <span id="profile-avatar" class="w-5 h-5 rounded-full bg-black text-white text-[10px] font-black flex items-center justify-center">V</span>
-          <span id="profile-name-display" class="text-xs font-bold text-zinc-900">Lương Anh Văn</span>
-          <svg class="w-3 h-3 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+    <!-- Top Bar: Segmented 1-Click Profile Switcher & Target -->
+    <header class="pt-3 px-4 pb-2.5 flex items-center justify-between z-20 shrink-0 border-b border-zinc-100/90 bg-white">
+      <!-- Segmented Profile Buttons (1-Tap Instant Switch) -->
+      <div class="flex items-center bg-zinc-100 p-1 rounded-full border border-zinc-200/70 gap-1">
+        <button id="pill-profile-van" onclick="selectProfile('van')" 
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all bg-black text-white shadow-sm">
+          <span id="badge-icon-van" class="w-4 h-4 rounded-full bg-white text-black text-[9px] font-black flex items-center justify-center">V</span>
+          <span>Lương Anh Văn</span>
         </button>
-
-        <!-- Dropdown menu -->
-        <div id="profile-dropdown-menu" class="absolute left-0 mt-2 w-52 bg-white rounded-2xl shadow-2xl border border-zinc-100 p-1.5 hidden z-50">
-          <button onclick="selectProfile('van')" class="w-full flex items-center gap-2.5 p-2 rounded-xl hover:bg-zinc-50 transition-all text-left">
-            <span class="w-7 h-7 rounded-full bg-black text-white text-xs font-black flex items-center justify-center">V</span>
-            <div>
-              <div class="text-xs font-bold text-zinc-900">Lương Anh Văn</div>
-              <div class="text-[10px] text-zinc-400">Nam • 69kg ➔ 62kg (60 ngày)</div>
-            </div>
-          </button>
-          <button onclick="selectProfile('oanh')" class="w-full flex items-center gap-2.5 p-2 rounded-xl hover:bg-rose-50 transition-all text-left mt-1">
-            <span class="w-7 h-7 rounded-full bg-rose-500 text-white text-xs font-black flex items-center justify-center">O</span>
-            <div>
-              <div class="text-xs font-bold text-zinc-900">Đào Phương Oanh</div>
-              <div class="text-[10px] text-rose-500 font-semibold">Nữ • 52kg ➔ 44kg (30 ngày)</div>
-            </div>
-          </button>
-        </div>
+        <button id="pill-profile-oanh" onclick="selectProfile('oanh')" 
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all text-zinc-600 hover:text-black">
+          <span id="badge-icon-oanh" class="w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-black flex items-center justify-center">O</span>
+          <span>Đào Phương Oanh</span>
+        </button>
       </div>
       
       <!-- Target Badge & Settings Trigger -->
-      <div class="flex items-center gap-1.5">
-        <button onclick="openSettingsModal()" title="Cài đặt mục tiêu" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/80 text-[11px] font-bold text-zinc-800 transition-all">
-          <span id="target-pulse-dot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span id="header-target-label">69 ➔ 62 kg</span>
-          <svg class="w-3 h-3 text-zinc-400 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-            <circle cx="12" cy="12" r="3"/>
-          </svg>
-        </button>
-      </div>
+      <button onclick="openSettingsModal()" title="Cài đặt mục tiêu" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/80 text-[11px] font-bold text-zinc-800 transition-all shrink-0">
+        <span id="target-pulse-dot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span id="header-target-label">69 ➔ 62 kg</span>
+        <svg class="w-3 h-3 text-zinc-400 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </button>
     </header>
 
+    <!-- INLINE HEALTH EVALUATION & PLAN OVERVIEW CARD (Collapsible & Always Reactive) -->
+    <div class="px-4 pt-2 pb-1 shrink-0">
+      <div id="eval-card-container" class="w-full bg-zinc-950 text-white rounded-3xl p-3 shadow-md border border-zinc-900 transition-all">
+        <!-- Summary bar (Click to expand/collapse) -->
+        <div onclick="toggleEvaluationCard()" class="flex items-center justify-between cursor-pointer select-none">
+          <div class="flex items-center gap-2">
+            <span id="eval-card-avatar" class="w-7 h-7 rounded-full bg-white text-black text-xs font-black flex items-center justify-center shrink-0">V</span>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <h3 id="eval-card-title" class="text-xs font-bold text-white">Đánh giá & Lộ trình: Lương Anh Văn</h3>
+                <span id="eval-card-tag" class="text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500 text-black uppercase">Skinny-Fat</span>
+              </div>
+              <p id="eval-card-quick-metrics" class="text-[10px] text-zinc-400 mt-0.5">BMI 23.6 • BMR 1.630 • Nạp 1.550 kcal • Nước 2.8L</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 shrink-0">
+            <span id="eval-card-toggle-text" class="text-[10px] font-bold text-zinc-300">Xem chi tiết</span>
+            <svg id="eval-card-chevron" class="w-3.5 h-3.5 text-zinc-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Collapsible Content -->
+        <div id="eval-card-content" class="hidden mt-3 pt-3 border-t border-zinc-800/80 space-y-3 text-xs max-h-[60vh] overflow-y-auto hide-scrollbar">
+          <!-- 6 Metrics Grid -->
+          <div>
+            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1.5">1. CHỈ SỐ CHUYỂN HÓA CƠ THỂ</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="bg-zinc-900 border border-zinc-800 p-2 rounded-2xl text-center">
+                <span class="text-[8.5px] text-zinc-400 font-bold uppercase block">BMI Hiện tại</span>
+                <span id="card-bmi-val" class="text-sm font-black text-white">23.6</span>
+                <span id="card-bmi-status" class="text-[8px] font-bold text-amber-400 block mt-0.5">Cận thừa cân</span>
+              </div>
+              <div class="bg-zinc-900 border border-zinc-800 p-2 rounded-2xl text-center">
+                <span class="text-[8.5px] text-zinc-400 font-bold uppercase block">BMR (Cơ bản)</span>
+                <span id="card-bmr-val" class="text-sm font-black text-white">1.630</span>
+                <span class="text-[8px] font-semibold text-zinc-400 block mt-0.5">kcal/ngày</span>
+              </div>
+              <div class="bg-zinc-900 border border-zinc-800 p-2 rounded-2xl text-center">
+                <span class="text-[8.5px] text-zinc-400 font-bold uppercase block">TDEE (Tiêu hao)</span>
+                <span id="card-tdee-val" class="text-sm font-black text-white">1.980</span>
+                <span class="text-[8px] font-semibold text-zinc-400 block mt-0.5">kcal/ngày</span>
+              </div>
+              <div class="bg-zinc-900 border border-zinc-800 p-2 rounded-2xl text-center">
+                <span class="text-[8.5px] text-zinc-400 font-bold uppercase block">Mục tiêu Calo</span>
+                <span id="card-target-cal" class="text-sm font-black text-emerald-400">1.550</span>
+                <span id="card-cal-diff" class="text-[8px] font-bold text-emerald-400 block mt-0.5">Thâm hụt -430</span>
+              </div>
+              <div class="bg-zinc-900 border border-zinc-800 p-2 rounded-2xl text-center">
+                <span class="text-[8.5px] text-zinc-400 font-bold uppercase block">Mục tiêu Nước</span>
+                <span id="card-water-val" class="text-sm font-black text-blue-400">2.8L</span>
+                <span class="text-[8px] font-semibold text-blue-400 block mt-0.5">Tiêu phù nề</span>
+              </div>
+              <div class="bg-zinc-900 border border-zinc-800 p-2 rounded-2xl text-center">
+                <span class="text-[8.5px] text-zinc-400 font-bold uppercase block">Mục tiêu Giảm</span>
+                <span id="card-weight-goal" class="text-sm font-black text-white">-7.0 kg</span>
+                <span id="card-days-goal" class="text-[8px] font-bold text-zinc-400 block mt-0.5">60 ngày</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Diagnosis -->
+          <div class="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-2.5">
+            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">2. ĐÁNH GIÁ THỂ TRẠNG & TÍCH MỠ</span>
+            <div id="card-diagnosis-content" class="text-[10.5px] text-zinc-300 space-y-1 leading-relaxed"></div>
+          </div>
+
+          <!-- 3 Phases Roadmap -->
+          <div>
+            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">3. LỘ TRÌNH CHI TIẾT</span>
+            <div id="card-phases-container" class="space-y-1.5 text-zinc-200"></div>
+          </div>
+
+          <!-- Golden Rules -->
+          <div class="bg-emerald-950/70 border border-emerald-800/40 rounded-2xl p-2.5">
+            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">4. NGUYÊN TẮC VÀNG BẮT BUỘC</span>
+            <ul id="card-rules-list" class="text-[10px] text-emerald-200 space-y-1 pl-4 list-disc"></ul>
+          </div>
+
+          <button onclick="openEvaluationModal()" class="w-full py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-[11px] font-bold transition-all flex items-center justify-center gap-1.5">
+            <span>Phóng to toàn màn hình</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Notice for aggressive 30-day goal for Oanh -->
-    <div id="oanh-safety-alert" class="hidden bg-rose-50 border-b border-rose-200/70 px-4 py-2 flex items-start gap-2 text-[10.5px] text-rose-800">
+    <div id="oanh-safety-alert" class="hidden bg-rose-50 border-b border-rose-200/70 px-4 py-2 flex items-start gap-2 text-[10.5px] text-rose-800 shrink-0">
       <span class="text-sm">⚠️</span>
       <div>
-        <b>Mục tiêu ép cân 30 ngày (52kg ➔ 44kg):</b> Cần cắt giảm muối tối đa, ăn 1.150 - 1.200 kcal & cardio 40p mỗi ngày. Uống đủ 2.2L nước để không suy kiệt!
+        <b>Mục tiêu ép cân 30 ngày (52kg ➔ 44kg):</b> Cắt giảm muối tối đa, ăn 1.150 - 1.200 kcal & cardio 40p mỗi ngày. Uống đủ 2.2L nước để cơ thể săn gọn, không suy kiệt!
       </div>
     </div>
 
     <!-- CONTENT SCREENS CONTAINER -->
-    <main class="flex-1 overflow-y-auto hide-scrollbar px-6 pb-24 relative pt-2">
+    <main class="flex-1 overflow-y-auto hide-scrollbar px-5 pb-24 relative pt-1">
       
       <!-- ======================================================== -->
       <!-- SCREEN 1: CHECK-IN & MEALS                               -->
       <!-- ======================================================== -->
-      <section id="screen-checkin" class="tab-screen hidden flex-col py-2">
+      <section id="screen-checkin" class="tab-screen hidden flex-col py-1">
         <div class="text-center w-full">
-          <h1 id="greeting-text" class="text-[24px] font-bold tracking-tight leading-tight text-zinc-900">
+          <h1 id="greeting-text" class="text-[22px] font-bold tracking-tight leading-tight text-zinc-900">
             Chào Lương Anh Văn,<br>Hôm nay bạn thế nào?
           </h1>
           
           <!-- Date Selector -->
-          <div class="flex items-center justify-center gap-2 mt-2">
+          <div class="flex items-center justify-center gap-2 mt-1.5">
             <span class="text-xs text-zinc-400">Ngày ghi nhận:</span>
             <input type="date" id="checkin-date-input" onchange="onCheckinDateChange(this.value)" 
                    class="text-xs font-bold text-zinc-800 bg-zinc-100 px-2.5 py-1 rounded-lg border border-zinc-200 outline-none cursor-pointer" />
           </div>
 
           <!-- Mode Pills -->
-          <div class="flex items-center justify-center gap-1 mt-3 bg-zinc-100 p-1 rounded-full w-max mx-auto border border-zinc-200/60">
+          <div class="flex items-center justify-center gap-1 mt-2.5 bg-zinc-100 p-1 rounded-full w-max mx-auto border border-zinc-200/60">
             <button onclick="setDialMode('weight')" id="pill-weight" class="dial-pill px-3 py-1 text-xs font-semibold rounded-full bg-black text-white transition-all shadow-sm">Cân nặng</button>
             <button onclick="setDialMode('water')" id="pill-water" class="dial-pill px-3 py-1 text-xs font-semibold rounded-full text-zinc-600 hover:text-black transition-all">Nước lọc</button>
             <button onclick="setDialMode('mood')" id="pill-mood" class="dial-pill px-3 py-1 text-xs font-semibold rounded-full text-zinc-600 hover:text-black transition-all">Năng lượng</button>
@@ -133,13 +206,13 @@
         </div>
 
         <!-- Central Circular Dial / Slider -->
-        <div class="my-4 flex flex-col items-center select-none">
-          <div id="dial-target-badge" class="w-12 h-12 rounded-full bg-zinc-900 text-white flex flex-col items-center justify-center shadow-lg mb-2 relative z-10">
-            <span class="text-[8px] font-semibold tracking-wider text-zinc-400 uppercase">MỤC TIÊU</span>
+        <div class="my-3 flex flex-col items-center select-none">
+          <div id="dial-target-badge" class="w-11 h-11 rounded-full bg-zinc-900 text-white flex flex-col items-center justify-center shadow-md mb-1 relative z-10">
+            <span class="text-[7.5px] font-semibold tracking-wider text-zinc-400 uppercase">MỤC TIÊU</span>
             <span id="dial-target-label" class="text-xs font-extrabold">62 kg</span>
           </div>
 
-          <div class="relative w-60 h-60 flex items-center justify-center">
+          <div class="relative w-56 h-56 flex items-center justify-center">
             <svg class="w-full h-full dial-svg" viewBox="0 0 240 240">
               <circle cx="120" cy="120" r="95" stroke="#F1F1F4" stroke-width="22" fill="transparent" stroke-linecap="round" />
               <circle id="dial-progress-arc" cx="120" cy="120" r="95" stroke="#121212" stroke-width="22" fill="transparent" 
@@ -149,13 +222,13 @@
             <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
               <span id="dial-value" class="text-5xl font-extrabold tracking-tighter text-zinc-950">69.0</span>
               <span id="dial-unit" class="text-xs font-semibold tracking-widest text-zinc-400 mt-0.5">KG</span>
-              <span id="dial-subtitle" class="text-[11px] font-medium text-emerald-600 mt-0.5">Xuất phát: 69.0 kg</span>
+              <span id="dial-subtitle" class="text-[10.5px] font-medium text-emerald-600 mt-0.5">Xuất phát: 69.0 kg</span>
             </div>
 
             <div id="dial-knob" class="absolute w-6 h-6 bg-white rounded-full border-4 border-zinc-900 shadow-md transform -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-transform" style="left: 215px; top: 120px;"></div>
           </div>
 
-          <div class="flex items-center gap-5 mt-2">
+          <div class="flex items-center gap-5 mt-1">
             <button onclick="adjustDialValue(-0.1)" class="w-9 h-9 rounded-full bg-zinc-100 hover:bg-zinc-200 flex items-center justify-center text-zinc-800 text-lg font-bold transition-all active:scale-90">-</button>
             <span class="text-[11px] font-medium text-zinc-400">Bấm +/- để chỉnh số đo</span>
             <button onclick="adjustDialValue(0.1)" class="w-9 h-9 rounded-full bg-zinc-100 hover:bg-zinc-200 flex items-center justify-center text-zinc-800 text-lg font-bold transition-all active:scale-90">+</button>
@@ -163,7 +236,7 @@
         </div>
 
         <!-- THỰC ĐƠN HÔM NAY -->
-        <div class="w-full bg-zinc-50 border border-zinc-200/70 rounded-3xl p-4 mt-2 mb-4">
+        <div class="w-full bg-zinc-50 border border-zinc-200/70 rounded-3xl p-4 mt-1 mb-3">
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-1.5">
               <span class="text-base">🥗</span>
@@ -219,8 +292,8 @@
         </div>
 
         <!-- Save Button -->
-        <div class="w-full pt-1 pb-4">
-          <button onclick="saveTodayCheckin()" id="btn-save-checkin" class="w-full py-4 rounded-full bg-zinc-950 hover:bg-black active:scale-[0.98] text-white flex items-center justify-center gap-2 shadow-xl shadow-black/10 transition-all">
+        <div class="w-full pt-1 pb-3">
+          <button onclick="saveTodayCheckin()" id="btn-save-checkin" class="w-full py-3.5 rounded-full bg-zinc-950 hover:bg-black active:scale-[0.98] text-white flex items-center justify-center gap-2 shadow-xl shadow-black/10 transition-all">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
             </svg>
@@ -232,15 +305,15 @@
       <!-- ======================================================== -->
       <!-- SCREEN 2: DYNAMIC ANALYTICS & GRAPH                      -->
       <!-- ======================================================== -->
-      <section id="screen-analytics" class="tab-screen flex flex-col py-2">
-        <div class="flex justify-center mb-4">
+      <section id="screen-analytics" class="tab-screen flex flex-col py-1">
+        <div class="flex justify-center mb-3">
           <div class="bg-zinc-100 p-1 rounded-full flex items-center gap-1 border border-zinc-200/50">
             <button onclick="setGraphTimeframe('weekly')" id="timeframe-weekly" class="px-5 py-1.5 text-xs font-bold rounded-full text-zinc-500 hover:text-black transition-all">Weekly</button>
             <button onclick="setGraphTimeframe('monthly')" id="timeframe-monthly" class="px-5 py-1.5 text-xs font-bold rounded-full bg-black text-white shadow-sm transition-all">Monthly</button>
           </div>
         </div>
 
-        <div class="flex items-center justify-between mb-3 px-1">
+        <div class="flex items-center justify-between mb-2.5 px-1">
           <div>
             <h2 id="analytics-month-title" class="text-lg font-bold text-zinc-900 tracking-tight">Tháng 9, 2026</h2>
             <p id="analytics-start-info" class="text-[11px] text-zinc-400">Bắt đầu: 15/09/2026</p>
@@ -253,7 +326,7 @@
         </div>
 
         <!-- Dynamic Chart with Floating Tooltip -->
-        <div class="relative bg-zinc-50/80 border border-zinc-100 rounded-3xl p-4 pt-6 mb-5 overflow-hidden">
+        <div class="relative bg-zinc-50/80 border border-zinc-100 rounded-3xl p-4 pt-6 mb-4 overflow-hidden">
           <div id="chart-tooltip-card" class="absolute z-20 bg-zinc-900 text-white rounded-2xl p-2.5 px-3.5 shadow-xl transition-all duration-200 transform -translate-x-1/2 pointer-events-none" style="left: 50%; top: 20px;">
             <div class="text-center">
               <div id="tooltip-date" class="text-[10px] text-zinc-400 font-medium tracking-wide">XUẤT PHÁT</div>
@@ -263,7 +336,7 @@
             <div class="w-2 h-2 bg-zinc-900 transform rotate-45 mx-auto -mb-3.5 mt-1"></div>
           </div>
 
-          <div class="w-full h-44 relative">
+          <div class="w-full h-40 relative">
             <svg id="dynamic-svg-chart" class="w-full h-full overflow-visible" viewBox="0 0 320 140">
               <line x1="0" y1="20" x2="320" y2="20" stroke="#F1F1F4" stroke-width="1" />
               <line x1="0" y1="60" x2="320" y2="60" stroke="#F1F1F4" stroke-width="1" />
@@ -280,37 +353,37 @@
         </div>
 
         <!-- 4 Metrics Grid -->
-        <div class="grid grid-cols-2 gap-3 mb-5">
-          <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-4 flex flex-col justify-between">
-            <span class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">CÂN HIỆN TẠI</span>
-            <div class="my-1.5">
+        <div class="grid grid-cols-2 gap-2.5 mb-4">
+          <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-3.5 flex flex-col justify-between">
+            <span class="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">CÂN HIỆN TẠI</span>
+            <div class="my-1">
               <span id="metric-current-weight" class="text-2xl font-black text-zinc-900">69.0</span>
               <span class="text-xs font-semibold text-zinc-500 ml-0.5">kg</span>
             </div>
             <span id="metric-weight-diff" class="text-[10px] font-semibold text-emerald-600">Mục tiêu: 62.0 kg</span>
           </div>
 
-          <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-4 flex flex-col justify-between">
-            <span class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">THÂM HỤT/NGÀY</span>
-            <div class="my-1.5">
+          <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-3.5 flex flex-col justify-between">
+            <span class="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">THÂM HỤT/NGÀY</span>
+            <div class="my-1">
               <span id="metric-deficit" class="text-2xl font-black text-zinc-900">-450</span>
               <span class="text-xs font-semibold text-zinc-500 ml-0.5">kcal</span>
             </div>
             <span id="metric-calorie-sub" class="text-[10px] font-semibold text-zinc-500">Mục tiêu: 1.550 kcal</span>
           </div>
 
-          <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-4 flex flex-col justify-between">
-            <span class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">STREAK KỶ LUẬT</span>
-            <div class="my-1.5">
+          <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-3.5 flex flex-col justify-between">
+            <span class="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">STREAK KỶ LUẬT</span>
+            <div class="my-1">
               <span id="metric-streak" class="text-2xl font-black text-zinc-900">0</span>
               <span class="text-xs font-semibold text-zinc-500 ml-0.5">ngày</span>
             </div>
             <span id="metric-streak-note" class="text-[10px] font-semibold text-zinc-500">Chưa bấm ghi nhận</span>
           </div>
 
-          <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-4 flex flex-col justify-between">
-            <span class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">TIẾN ĐỘ LỘ TRÌNH</span>
-            <div class="my-1.5">
+          <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-3.5 flex flex-col justify-between">
+            <span class="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">TIẾN ĐỘ LỘ TRÌNH</span>
+            <div class="my-1">
               <span id="metric-sessions" class="text-2xl font-black text-zinc-900">0<span id="metric-total-days-sub" class="text-zinc-400 text-base font-bold">/60</span></span>
             </div>
             <span id="metric-sessions-sub" class="text-[10px] font-semibold text-zinc-500">Chưa bắt đầu</span>
@@ -342,13 +415,13 @@
       <!-- ======================================================== -->
       <!-- SCREEN 3: HABITS INSIGHTS                                -->
       <!-- ======================================================== -->
-      <section id="screen-habits" class="tab-screen hidden flex-col py-2">
-        <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-5 mb-5 flex items-center justify-between">
+      <section id="screen-habits" class="tab-screen hidden flex-col py-1">
+        <div class="bg-zinc-50 border border-zinc-100 rounded-3xl p-4 mb-4 flex items-center justify-between">
           <div>
             <h2 class="text-xs font-bold text-zinc-900 uppercase tracking-wider">Chỉ số hôm nay</h2>
             <p id="habits-subtitle" class="text-[11px] text-zinc-400 mt-0.5">3 nguyên tắc giảm mỡ</p>
 
-            <div class="mt-3.5 space-y-1.5 text-xs font-semibold">
+            <div class="mt-3 space-y-1.5 text-xs font-semibold">
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-zinc-900"></span>
                 <span id="label-macro-protein" class="text-zinc-600">Đạm ≥ 120g:</span>
@@ -367,8 +440,8 @@
             </div>
           </div>
 
-          <div class="w-28 h-28 relative flex items-center justify-center">
-            <svg class="w-28 h-28 dial-svg" viewBox="0 0 120 120">
+          <div class="w-24 h-24 relative flex items-center justify-center">
+            <svg class="w-24 h-24 dial-svg" viewBox="0 0 120 120">
               <circle cx="60" cy="60" r="50" stroke="#EEEEEE" stroke-width="7" fill="none" />
               <circle id="ring-protein" cx="60" cy="60" r="50" stroke="#121212" stroke-width="7" fill="none" 
                       stroke-dasharray="314.15" stroke-dashoffset="62" stroke-linecap="round" />
@@ -381,18 +454,18 @@
               <circle id="ring-workout" cx="60" cy="60" r="26" stroke="#D4D4D8" stroke-width="7" fill="none" 
                       stroke-dasharray="163.36" stroke-dashoffset="65" stroke-linecap="round" />
             </svg>
-            <div id="ring-total-label" class="absolute text-[11px] font-extrabold text-zinc-900">72%</div>
+            <div id="ring-total-label" class="absolute text-xs font-extrabold text-zinc-900">72%</div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between mb-3 px-1">
+        <div class="flex items-center justify-between mb-2.5 px-1">
           <h3 class="text-base font-bold text-zinc-900 tracking-tight">Habits insights</h3>
           <span class="text-[11px] font-semibold text-zinc-400">Bấm để hoàn thành</span>
         </div>
 
-        <div class="space-y-3">
-          <div onclick="toggleHabit('workout')" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-4 hover:border-zinc-300 transition-all cursor-pointer">
-            <div class="flex items-center justify-between mb-2">
+        <div class="space-y-2.5">
+          <div onclick="toggleHabit('workout')" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-3.5 hover:border-zinc-300 transition-all cursor-pointer">
+            <div class="flex items-center justify-between mb-1.5">
               <div>
                 <h4 id="habit-workout-title" class="text-xs font-bold text-zinc-900">Tập luyện tại nhà (35-40 phút)</h4>
                 <span id="habit-workout-sub" class="text-[10px] text-zinc-400 font-medium">Hít đất, Plank, Squat theo lịch</span>
@@ -404,8 +477,8 @@
             </div>
           </div>
 
-          <div onclick="toggleHabit('water')" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-4 hover:border-zinc-300 transition-all cursor-pointer">
-            <div class="flex items-center justify-between mb-2">
+          <div onclick="toggleHabit('water')" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-3.5 hover:border-zinc-300 transition-all cursor-pointer">
+            <div class="flex items-center justify-between mb-1.5">
               <div>
                 <h4 id="habit-water-title" class="text-xs font-bold text-zinc-900">Uống 2.8L nước lọc (Tiêu sưng mặt)</h4>
                 <span class="text-[10px] text-zinc-400 font-medium">Đào thải natri, làm thon gọn cơ thể</span>
@@ -417,8 +490,8 @@
             </div>
           </div>
 
-          <div onclick="toggleHabit('steps')" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-4 hover:border-zinc-300 transition-all cursor-pointer">
-            <div class="flex items-center justify-between mb-2">
+          <div onclick="toggleHabit('steps')" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-3.5 hover:border-zinc-300 transition-all cursor-pointer">
+            <div class="flex items-center justify-between mb-1.5">
               <div>
                 <h4 id="habit-steps-title" class="text-xs font-bold text-zinc-900">8.000 bước vận động</h4>
                 <span class="text-[10px] text-zinc-400 font-medium">Đứng dậy đi lại tiêu hao năng lượng NEAT</span>
@@ -430,8 +503,8 @@
             </div>
           </div>
 
-          <div onclick="toggleHabit('sleep')" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-4 hover:border-zinc-300 transition-all cursor-pointer">
-            <div class="flex items-center justify-between mb-2">
+          <div onclick="toggleHabit('sleep')" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-3.5 hover:border-zinc-300 transition-all cursor-pointer">
+            <div class="flex items-center justify-between mb-1.5">
               <div>
                 <h4 class="text-xs font-bold text-zinc-900">Ngủ trước 23:30 (Khóa mỡ thừa)</h4>
                 <span class="text-[10px] text-zinc-400 font-medium">Hạ cortisol, ngăn chặn tích mỡ bụng</span>
@@ -444,7 +517,7 @@
           </div>
         </div>
 
-        <div class="mt-6 bg-zinc-50 border border-zinc-100 rounded-3xl p-4">
+        <div class="mt-4 bg-zinc-50 border border-zinc-100 rounded-3xl p-4">
           <div class="flex items-center justify-between mb-2">
             <h4 class="text-xs font-bold text-zinc-900 uppercase tracking-wider">Thực đơn đã lưu hôm nay</h4>
             <button onclick="switchTab('checkin')" class="text-[10px] font-bold text-zinc-500 hover:text-black">Sửa thực đơn ➔</button>
@@ -456,21 +529,21 @@
       <!-- ======================================================== -->
       <!-- SCREEN 4: WORKOUT PROGRAM & TIMER                        -->
       <!-- ======================================================== -->
-      <section id="screen-plan" class="tab-screen hidden flex-col py-2">
-        <div class="mb-3">
+      <section id="screen-plan" class="tab-screen hidden flex-col py-1">
+        <div class="mb-2.5">
           <h2 id="plan-title" class="text-lg font-bold text-zinc-900 tracking-tight">Giáo án tập luyện tại nhà</h2>
           <p id="plan-subtitle" class="text-xs text-zinc-400">Thiết kế cho Lương Anh Văn</p>
         </div>
 
-        <div class="flex gap-2 overflow-x-auto hide-scrollbar pb-2 mb-3">
-          <button onclick="selectWorkoutDay('t2')" id="day-t2" class="day-btn px-4 py-2 rounded-2xl bg-black text-white text-xs font-bold shrink-0 shadow-sm">T2: Buổi 1</button>
-          <button onclick="selectWorkoutDay('t3')" id="day-t3" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0">T3: Buổi 2</button>
-          <button onclick="selectWorkoutDay('t4')" id="day-t4" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0">T4: Phục hồi</button>
-          <button onclick="selectWorkoutDay('t5')" id="day-t5" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0">T5: Buổi 3</button>
-          <button onclick="selectWorkoutDay('t6')" id="day-t6" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0">T6: Đốt mỡ</button>
+        <div class="flex gap-2 overflow-x-auto hide-scrollbar pb-2 mb-2.5">
+          <button onclick="selectWorkoutDay('t2')" id="day-t2" class="day-btn px-4 py-2 rounded-2xl bg-black text-white text-xs font-bold shrink-0 shadow-sm transition-all">T2: Buổi 1</button>
+          <button onclick="selectWorkoutDay('t3')" id="day-t3" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">T3: Buổi 2</button>
+          <button onclick="selectWorkoutDay('t4')" id="day-t4" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">T4: Phục hồi</button>
+          <button onclick="selectWorkoutDay('t5')" id="day-t5" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">T5: Buổi 3</button>
+          <button onclick="selectWorkoutDay('t6')" id="day-t6" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">T6: Đốt mỡ</button>
         </div>
 
-        <div class="bg-zinc-900 text-white rounded-3xl p-5 mb-4 shadow-lg relative overflow-hidden">
+        <div class="bg-zinc-900 text-white rounded-3xl p-4 mb-3 shadow-lg relative overflow-hidden">
           <div class="flex items-center justify-between">
             <span class="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">BỘ ĐẾM HIỆP TẬP</span>
             <span id="timer-phase" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/10 text-emerald-400 uppercase">Sẵn sàng</span>
@@ -492,10 +565,96 @@
           </div>
         </div>
 
-        <div id="exercise-list" class="space-y-2"></div>
+        <div id="exercise-list" class="space-y-2 pb-2"></div>
       </section>
 
     </main>
+
+    <!-- FULLSCREEN EVALUATION & OVERVIEW MODAL -->
+    <div id="eval-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-3 hidden">
+      <div class="w-full max-w-[410px] max-h-[88vh] bg-white rounded-3xl p-5 shadow-2xl flex flex-col overflow-hidden">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-zinc-100 pb-3 shrink-0">
+          <div class="flex items-center gap-2">
+            <span id="eval-modal-avatar" class="w-7 h-7 rounded-full bg-black text-white text-xs font-black flex items-center justify-center">V</span>
+            <div>
+              <h3 id="eval-modal-name" class="text-sm font-bold text-zinc-900">Lương Anh Văn</h3>
+              <p id="eval-modal-subtitle" class="text-[10px] text-zinc-400">Đánh giá thể trạng & Tổng quan kế hoạch</p>
+            </div>
+          </div>
+          <button onclick="closeEvaluationModal()" class="w-7 h-7 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 font-bold hover:bg-zinc-200 text-xs">✕</button>
+        </div>
+
+        <!-- Scrollable Body -->
+        <div class="flex-1 overflow-y-auto hide-scrollbar space-y-4 py-3 text-xs">
+          
+          <!-- 1. Metabolic Metrics Grid (6 Metrics) -->
+          <div>
+            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-2">1. CHỈ SỐ CHUYỂN HÓA CƠ THỂ</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="bg-zinc-50 border border-zinc-100 p-2.5 rounded-2xl text-center">
+                <span class="text-[9px] text-zinc-400 font-bold uppercase block">BMI Hiện tại</span>
+                <span id="eval-bmi-val" class="text-base font-black text-zinc-900">23.6</span>
+                <span id="eval-bmi-status" class="text-[9px] font-bold text-amber-600 block mt-0.5">Cận thừa cân</span>
+              </div>
+              <div class="bg-zinc-50 border border-zinc-100 p-2.5 rounded-2xl text-center">
+                <span class="text-[9px] text-zinc-400 font-bold uppercase block">BMR (Cơ bản)</span>
+                <span id="eval-bmr-val" class="text-base font-black text-zinc-900">1.630</span>
+                <span class="text-[9px] font-semibold text-zinc-400 block mt-0.5">kcal/ngày</span>
+              </div>
+              <div class="bg-zinc-50 border border-zinc-100 p-2.5 rounded-2xl text-center">
+                <span class="text-[9px] text-zinc-400 font-bold uppercase block">TDEE (Tiêu hao)</span>
+                <span id="eval-tdee-val" class="text-base font-black text-zinc-900">1.980</span>
+                <span class="text-[9px] font-semibold text-zinc-400 block mt-0.5">kcal/ngày</span>
+              </div>
+              <div class="bg-zinc-50 border border-zinc-100 p-2.5 rounded-2xl text-center">
+                <span class="text-[9px] text-zinc-400 font-bold uppercase block">Mục tiêu Calo</span>
+                <span id="eval-target-cal" class="text-base font-black text-emerald-600">1.550</span>
+                <span id="eval-cal-diff" class="text-[9px] font-bold text-emerald-600 block mt-0.5">Thâm hụt -430</span>
+              </div>
+              <div class="bg-zinc-50 border border-zinc-100 p-2.5 rounded-2xl text-center">
+                <span class="text-[9px] text-zinc-400 font-bold uppercase block">Mục tiêu Nước</span>
+                <span id="eval-water-val" class="text-base font-black text-blue-600">2.8L</span>
+                <span class="text-[9px] font-semibold text-blue-500 block mt-0.5">Tiêu phù nề</span>
+              </div>
+              <div class="bg-zinc-50 border border-zinc-100 p-2.5 rounded-2xl text-center">
+                <span class="text-[9px] text-zinc-400 font-bold uppercase block">Mục tiêu Giảm</span>
+                <span id="eval-weight-goal" class="text-base font-black text-zinc-900">-7.0 kg</span>
+                <span id="eval-days-goal" class="text-[9px] font-bold text-zinc-600 block mt-0.5">Trong 60 ngày</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Diagnosis & Body Analysis -->
+          <div class="bg-zinc-50 border border-zinc-100 rounded-2xl p-3.5">
+            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1.5">2. ĐÁNH GIÁ THỂ TRẠNG & NGUYÊN NHÂN TÍCH MỠ</span>
+            <div id="eval-diagnosis-content" class="text-[11px] text-zinc-700 space-y-1.5 leading-relaxed"></div>
+          </div>
+
+          <!-- 3. Roadmap Strategy (3 Phases) -->
+          <div>
+            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1.5">3. CHIẾN LƯỢC LỘ TRÌNH CHI TIẾT</span>
+            <div id="eval-phases-container" class="space-y-2"></div>
+          </div>
+
+          <!-- 4. Golden Rules -->
+          <div class="bg-emerald-50/70 border border-emerald-100 rounded-2xl p-3">
+            <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block mb-1.5">4. NGUYÊN TẮC VÀNG BẮT BUỘC ĐỂ ĐẠT MỤC TIÊU</span>
+            <ul id="eval-rules-list" class="text-[10.5px] text-emerald-900 space-y-1 pl-4 list-disc"></ul>
+          </div>
+
+        </div>
+
+        <!-- Footer Button -->
+        <div class="pt-3 border-t border-zinc-100 shrink-0">
+          <button onclick="closeEvaluationModal()" class="w-full py-3 rounded-2xl bg-zinc-900 text-white text-xs font-bold hover:bg-black transition-all">
+            Đã hiểu & Bắt đầu theo dõi lộ trình ✓
+          </button>
+        </div>
+
+      </div>
+    </div>
 
     <!-- SETTINGS MODAL -->
     <div id="settings-modal" class="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 hidden">
@@ -609,13 +768,13 @@
     </nav>
 
     <!-- Toast Notification -->
-    <div id="toast-msg" class="absolute top-5 left-1/2 transform -translate-x-1/2 bg-zinc-900 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2">
+    <div id="toast-msg" class="absolute top-4 left-1/2 transform -translate-x-1/2 bg-zinc-900 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2">
       <span>✓ Đã cập nhật thành công!</span>
     </div>
 
   </div>
 
-  <!-- APPLICATION SCRIPT WITH MULTI-PROFILE SUPPORT -->
+  <!-- APPLICATION SCRIPT WITH MULTI-PROFILE SUPPORT & INSTANT REACTIVITY -->
   <script>
     function getTodayStr() {
       const now = new Date();
@@ -659,7 +818,7 @@
         startWeight: 52.0,
         targetWeight: 44.0,
         startDate: getTomorrowStr(),
-        totalDays: 30, // 30 ngày theo yêu cầu
+        totalDays: 30,
         dailyCalories: 1200,
         dailyWater: 2.2,
         dialMode: 'weight',
@@ -672,13 +831,21 @@
 
     let allProfiles = JSON.parse(JSON.stringify(DEFAULT_PROFILES));
     let activeProfileId = "van";
+    let currentActiveTab = "analytics";
 
     function loadSavedMultiProfiles() {
       try {
         const saved = localStorage.getItem('lav2000_profiles_v1');
         if (saved) {
           const parsed = JSON.parse(saved);
-          allProfiles = { ...allProfiles, ...parsed.profiles };
+          for (const key of ['van', 'oanh']) {
+            if (parsed.profiles && parsed.profiles[key]) {
+              allProfiles[key] = {
+                ...DEFAULT_PROFILES[key],
+                ...parsed.profiles[key]
+              };
+            }
+          }
           if (parsed.activeId && allProfiles[parsed.activeId]) {
             activeProfileId = parsed.activeId;
           }
@@ -689,6 +856,10 @@
       if (allProfiles.van) {
         allProfiles.van.name = "Lương Anh Văn";
         allProfiles.van.shortName = "Văn";
+      }
+      if (allProfiles.oanh) {
+        allProfiles.oanh.name = "Đào Phương Oanh";
+        allProfiles.oanh.shortName = "Oanh";
       }
     }
 
@@ -705,33 +876,58 @@
       return allProfiles[activeProfileId];
     }
 
-    // Profile Dropdown Toggle
-    function toggleProfileDropdown() {
-      const menu = document.getElementById('profile-dropdown-menu');
-      menu.classList.toggle('hidden');
+    // Toggle Collapsible Evaluation Overview Card
+    let isEvalCardExpanded = false;
+    function toggleEvaluationCard() {
+      isEvalCardExpanded = !isEvalCardExpanded;
+      const content = document.getElementById('eval-card-content');
+      const chevron = document.getElementById('eval-card-chevron');
+      const toggleText = document.getElementById('eval-card-toggle-text');
+      if (isEvalCardExpanded) {
+        content.classList.remove('hidden');
+        chevron.classList.add('rotate-180');
+        toggleText.textContent = "Thu gọn";
+      } else {
+        content.classList.add('hidden');
+        chevron.classList.remove('rotate-180');
+        toggleText.textContent = "Xem chi tiết";
+      }
     }
 
-    // Select Profile
+    // 1-Click Instant Profile Selection
     function selectProfile(profileId) {
       activeProfileId = profileId;
-      document.getElementById('profile-dropdown-menu').classList.add('hidden');
       saveMultiProfiles();
       applyProfileUI();
-      showToast("Đã chuyển sang profile: " + getCurProfile().name);
+      showToast("Đã chuyển sang: " + getCurProfile().name);
     }
 
+    // Full UI Reactive Sync across all components
     function applyProfileUI() {
       const p = getCurProfile();
       const isVan = p.id === 'van';
 
-      // Header UI
-      document.getElementById('profile-name-display').textContent = p.name;
-      const avatar = document.getElementById('profile-avatar');
-      avatar.textContent = p.shortName.charAt(0);
-      avatar.className = isVan 
-        ? "w-5 h-5 rounded-full bg-black text-white text-[10px] font-black flex items-center justify-center" 
-        : "w-5 h-5 rounded-full bg-rose-500 text-white text-[10px] font-black flex items-center justify-center";
+      // 1. Header Segmented Pills
+      const vanPill = document.getElementById('pill-profile-van');
+      const oanhPill = document.getElementById('pill-profile-oanh');
+      const vanBadge = document.getElementById('badge-icon-van');
+      const oanhBadge = document.getElementById('badge-icon-oanh');
 
+      if (isVan) {
+        vanPill.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all bg-black text-white shadow-sm";
+        vanBadge.className = "w-4 h-4 rounded-full bg-white text-black text-[9px] font-black flex items-center justify-center";
+        
+        oanhPill.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all text-zinc-600 hover:text-black";
+        oanhBadge.className = "w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-black flex items-center justify-center";
+      } else {
+        vanPill.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all text-zinc-600 hover:text-black";
+        vanBadge.className = "w-4 h-4 rounded-full bg-black text-white text-[9px] font-black flex items-center justify-center";
+
+        oanhPill.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all bg-rose-500 text-white shadow-sm";
+        oanhBadge.className = "w-4 h-4 rounded-full bg-white text-rose-600 text-[9px] font-black flex items-center justify-center";
+      }
+
+      // Header Target Badge
       document.getElementById('header-target-label').textContent = p.startWeight + " ➔ " + p.targetWeight + " kg";
       document.getElementById('target-pulse-dot').className = isVan 
         ? "w-2 h-2 rounded-full bg-emerald-500 animate-pulse" 
@@ -745,41 +941,66 @@
         safetyAlert.classList.add('hidden');
       }
 
-      // Checkin & Dial
+      // 2. Update Evaluation Overview (Both Inline Card & Modal)
+      updateEvaluationOverviewUI();
+
+      // 3. Update Check-in & Dial
       document.getElementById('dial-target-label').textContent = p.targetWeight + " kg";
       const targetBadge = document.getElementById('dial-target-badge');
       targetBadge.className = isVan 
-        ? "w-12 h-12 rounded-full bg-zinc-900 text-white flex flex-col items-center justify-center shadow-lg mb-2 relative z-10"
-        : "w-12 h-12 rounded-full bg-rose-500 text-white flex flex-col items-center justify-center shadow-lg mb-2 relative z-10";
+        ? "w-11 h-11 rounded-full bg-zinc-900 text-white flex flex-col items-center justify-center shadow-md mb-1 relative z-10"
+        : "w-11 h-11 rounded-full bg-rose-500 text-white flex flex-col items-center justify-center shadow-md mb-1 relative z-10";
 
       document.getElementById('meal-profile-owner').textContent = p.name;
       document.getElementById('meal-profile-owner').className = isVan ? "text-emerald-700" : "text-rose-600";
-      
       document.getElementById('btn-fill-meal').textContent = isVan ? "⚡ Điền chuẩn 1.550 kcal" : "⚡ Điền chuẩn 1.200 kcal";
       
-      // Calorie deficit subtitle in analytics
+      // Dynamic Meal Labels & Placeholders per profile
+      document.getElementById('label-breakfast').textContent = isVan ? "🌅 Bữa sáng (~350 kcal)" : "🌅 Bữa sáng (~280 kcal)";
+      document.getElementById('label-lunch').textContent = isVan ? "☀️ Bữa trưa (~550 kcal)" : "☀️ Bữa trưa (~420 kcal)";
+      document.getElementById('label-snack').textContent = isVan ? "☕ Bữa phụ chiều (~150 kcal)" : "☕ Bữa phụ chiều (~150 kcal)";
+      document.getElementById('label-dinner').textContent = isVan ? "🌙 Bữa tối (~450 kcal)" : "🌙 Bữa tối (~350 kcal)";
+
+      document.getElementById('meal-breakfast').placeholder = isVan ? "Ví dụ: Yến mạch 40g + 1 trứng luộc + cà phê đen" : "Ví dụ: 1 trứng luộc + bánh mì đen + chanh ấm";
+      document.getElementById('meal-lunch').placeholder = isVan ? "Ví dụ: Cơm lứt + 150g ức gà áp chảo + rau luộc" : "Ví dụ: 1/2 bát cơm lứt + tôm hấp + súp lơ luộc";
+      document.getElementById('meal-snack').placeholder = isVan ? "Ví dụ: 1 chuối + 5 hạt hạnh nhân" : "Ví dụ: Sữa chua Hy Lạp + 1/2 quả táo xanh";
+      document.getElementById('meal-dinner').placeholder = isVan ? "Ví dụ: Khoai lang + cá hấp + canh rau" : "Ví dụ: Salad ức gà giấm táo + canh bí đao";
+
+      document.getElementById('meal-rule-badge').textContent = isVan 
+        ? "Ít muối • Đủ đạm • Không rượu bia" 
+        : "Cắt tinh bột tối • Đủ 2.2L nước • Không nhịn đói";
+      document.getElementById('meal-rule-badge').className = isVan 
+        ? "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-md" 
+        : "text-rose-700 font-bold bg-rose-50 px-2 py-0.5 rounded-md";
+
+      // 4. Analytics metrics
       document.getElementById('metric-calorie-sub').textContent = "Mục tiêu: " + p.dailyCalories + " kcal";
       document.getElementById('metric-deficit').textContent = isVan ? "-450" : "-500";
       document.getElementById('gauge-title').textContent = "Tiến độ " + p.startWeight + "kg ➔ " + p.targetWeight + "kg";
       document.getElementById('metric-total-days-sub').textContent = "/" + p.totalDays;
 
-      // Habit labels
+      // 5. Habits labels
       document.getElementById('label-macro-protein').textContent = isVan ? "Đạm ≥ 120g:" : "Đạm ≥ 80g (săn cơ):";
       document.getElementById('label-macro-water').textContent = "Nước " + p.dailyWater + "L:";
-      document.getElementById('habit-water-title').textContent = "Uống " + p.dailyWater + "L nước lọc (Tiêu phù nề)";
+      document.getElementById('habit-water-title').textContent = isVan 
+        ? "Uống 2.8L nước lọc (Tiêu sưng mặt)" 
+        : "Uống 2.2L nước lọc (Đào thải mỡ thừa)";
       document.getElementById('habit-workout-title').textContent = isVan ? "Tập Thân trên & Bụng (35p)" : "Cardio đốt mỡ & Eo thon (40p)";
       document.getElementById('habit-workout-sub').textContent = isVan ? "Hít đất, Plank, Gập bụng theo lịch" : "Squat thon chân, mông đào, eo con kiến";
       document.getElementById('habit-steps-title').textContent = isVan ? "8.000 bước vận động" : "10.000 bước đi bộ đốt mỡ";
 
-      // Workout plan header
+      // 6. Workout plan header & day buttons styling
       document.getElementById('plan-subtitle').textContent = "Thiết kế cho " + p.name + " (" + (p.gender === 'male' ? 'Nam' : 'Nữ') + " • " + p.startWeight + "kg ➔ " + p.targetWeight + "kg trong " + p.totalDays + " ngày)";
-
+      
       updateGreeting();
       setDialMode(p.dialMode || 'weight');
       loadCheckinDateUI();
       renderDynamicChart();
       updateHabitsUI();
-      renderExerciseList();
+      selectWorkoutDay(p.selectedWorkoutDay || 't2');
+
+      // Refresh currently viewed screen instantly
+      switchTab(currentActiveTab);
     }
 
     // Dynamic Greeting
@@ -853,11 +1074,10 @@
         document.getElementById('meal-dinner').value = "1 củ khoai lang + 150g cá hấp/áp chảo + canh rau (450 kcal)";
         showToast("Đã điền thực đơn 1.550 kcal cho Văn!");
       } else {
-        // Thực đơn ép mỡ 30 ngày cho Đào Phương Oanh (1.200 kcal)
         document.getElementById('meal-breakfast').value = "1 quả trứng luộc + 1 lát bánh mì đen + 1 ly nước chanh ấm mật ong (280 kcal)";
         document.getElementById('meal-lunch').value = "1/2 bát cơm gạo lứt + 120g ức gà xé/tôm hấp + đĩa lớn súp lơ xanh luộc (420 kcal)";
         document.getElementById('meal-snack').value = "1 hộp sữa chua Hy Lạp / không đường + 1/2 quả táo xanh (150 kcal)";
-        document.getElementById('meal-dinner').value = "Salad ức gà/đậu phụ sốt giấm táo + canh bí đao thịt nạc (không tinh bột) (350 kcal)";
+        document.getElementById('meal-dinner').value = "Salad ức gà/đậu phụ sốt giấm táo + canh bí đao thịt nạc (350 kcal)";
         showToast("Đã điền thực đơn ép mỡ 1.200 kcal cho Oanh!");
       }
     }
@@ -895,13 +1115,13 @@
         const diff = (w - p.startWeight).toFixed(1);
         if (diff == 0) {
           subEl.textContent = "Xuất phát: " + p.startWeight + " kg";
-          subEl.className = "text-[11px] font-medium text-zinc-500 mt-0.5";
+          subEl.className = "text-[10.5px] font-medium text-zinc-500 mt-0.5";
         } else if (diff < 0) {
           subEl.textContent = "▼ " + diff + " kg so với ban đầu";
-          subEl.className = "text-[11px] font-medium text-emerald-600 mt-0.5";
+          subEl.className = "text-[10.5px] font-medium text-emerald-600 mt-0.5";
         } else {
           subEl.textContent = "▲ +" + diff + " kg so với ban đầu";
-          subEl.className = "text-[11px] font-medium text-amber-600 mt-0.5";
+          subEl.className = "text-[10.5px] font-medium text-amber-600 mt-0.5";
         }
 
         const totalToLose = p.startWeight - p.targetWeight;
@@ -917,7 +1137,7 @@
         valEl.textContent = wt.toFixed(1);
         unitEl.textContent = "LÍT";
         subEl.textContent = "Mục tiêu: " + p.dailyWater + "L nước lọc/ngày";
-        subEl.className = "text-[11px] font-medium text-blue-600 mt-0.5";
+        subEl.className = "text-[10.5px] font-medium text-blue-600 mt-0.5";
         const fraction = Math.min(1, wt / (p.dailyWater || 2.2));
         const offset = circleCircumference * (1 - fraction * 0.75);
         progressArc.style.strokeDashoffset = offset;
@@ -929,7 +1149,7 @@
         valEl.textContent = Math.round(m);
         unitEl.textContent = "/ 10";
         subEl.textContent = "Mức độ quyết tâm & năng lượng";
-        subEl.className = "text-[11px] font-medium text-zinc-500 mt-0.5";
+        subEl.className = "text-[10.5px] font-medium text-zinc-500 mt-0.5";
         const fraction = m / 10;
         const offset = circleCircumference * (1 - fraction * 0.75);
         progressArc.style.strokeDashoffset = offset;
@@ -989,11 +1209,11 @@
       saveMultiProfiles();
       renderDynamicChart();
       updateHabitsUI();
-      showToast("Đã lưu ghi nhận ngày " + dateStr + " cho " + p.shortName + "!");
+      showToast("Đã lưu ngày " + dateStr + " cho " + p.shortName + "!");
       
       setTimeout(() => {
         switchTab('analytics');
-      }, 500);
+      }, 400);
     }
 
     // Number of recorded days
@@ -1236,6 +1456,7 @@
     }
 
     function switchTab(tabId) {
+      currentActiveTab = tabId;
       document.querySelectorAll('.tab-screen').forEach(s => s.classList.add('hidden'));
       const activeScreen = document.getElementById("screen-" + tabId);
       if (activeScreen) {
@@ -1611,7 +1832,204 @@
       setTimeout(() => {
         toast.classList.remove('opacity-100', '-translate-y-1');
         toast.classList.add('opacity-0');
-      }, 2500);
+      }, 2300);
+    }
+
+    // EVALUATION OVERVIEW POPULATOR (Updates both the Inline Card & the Fullscreen Modal)
+    function updateEvaluationOverviewUI() {
+      const p = getCurProfile();
+      const isVan = p.id === 'van';
+
+      // Inline Card Header
+      document.getElementById('eval-card-avatar').textContent = p.shortName.charAt(0);
+      document.getElementById('eval-card-avatar').className = isVan 
+        ? "w-7 h-7 rounded-full bg-white text-black text-xs font-black flex items-center justify-center shrink-0" 
+        : "w-7 h-7 rounded-full bg-rose-500 text-white text-xs font-black flex items-center justify-center shrink-0";
+
+      document.getElementById('eval-card-title').textContent = "Đánh giá & Lộ trình: " + p.name;
+      const tagEl = document.getElementById('eval-card-tag');
+      tagEl.textContent = isVan ? "Skinny-Fat (60 ngày)" : "Siết Idol (30 ngày)";
+      tagEl.className = isVan 
+        ? "text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500 text-black uppercase" 
+        : "text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-rose-500 text-white uppercase";
+
+      document.getElementById('eval-card-quick-metrics').textContent = isVan 
+        ? "BMI 23.6 • BMR 1.630 • Nạp 1.550 kcal • Nước 2.8L" 
+        : "BMI 20.8 • BMR 1.250 • Nạp 1.200 kcal • Nước 2.2L";
+
+      // Modal Header
+      document.getElementById('eval-modal-name').textContent = p.name + " (" + (isVan ? "Nam • 26 tuổi" : "Nữ • 25 tuổi") + ")";
+      const modalAvatar = document.getElementById('eval-modal-avatar');
+      modalAvatar.textContent = p.shortName.charAt(0);
+      modalAvatar.className = isVan 
+        ? "w-7 h-7 rounded-full bg-black text-white text-xs font-black flex items-center justify-center" 
+        : "w-7 h-7 rounded-full bg-rose-500 text-white text-xs font-black flex items-center justify-center";
+
+      if (isVan) {
+        // Numbers
+        document.getElementById('card-bmi-val').textContent = "23.6";
+        document.getElementById('eval-bmi-val').textContent = "23.6";
+        document.getElementById('card-bmi-status').textContent = "Cận thừa cân";
+        document.getElementById('eval-bmi-status').textContent = "Cận thừa cân (Skinny-fat)";
+        document.getElementById('card-bmi-status').className = "text-[8px] font-bold text-amber-400 block mt-0.5";
+        document.getElementById('eval-bmi-status').className = "text-[9px] font-bold text-amber-600 block mt-0.5";
+
+        document.getElementById('card-bmr-val').textContent = "1.630";
+        document.getElementById('eval-bmr-val').textContent = "1.630";
+
+        document.getElementById('card-tdee-val').textContent = "1.980";
+        document.getElementById('eval-tdee-val').textContent = "1.980";
+
+        document.getElementById('card-target-cal').textContent = "1.550";
+        document.getElementById('eval-target-cal').textContent = "1.550";
+
+        document.getElementById('card-cal-diff').textContent = "Thâm hụt -430";
+        document.getElementById('eval-cal-diff').textContent = "Thâm hụt -430";
+
+        document.getElementById('card-water-val').textContent = "2.8L";
+        document.getElementById('eval-water-val').textContent = "2.8L";
+
+        document.getElementById('card-weight-goal').textContent = "-7.0 kg";
+        document.getElementById('eval-weight-goal').textContent = "-7.0 kg";
+
+        document.getElementById('card-days-goal').textContent = "60 ngày";
+        document.getElementById('eval-days-goal').textContent = "Lộ trình 60 ngày";
+
+        // Diagnosis
+        const diagHtml = 
+          "<p>• <b>Thể trạng Skinny-Fat văn phòng:</b> Khung người ít cơ, tỷ lệ mỡ nội tạng cao tích tụ ở <b>bụng dưới</b> do ngồi máy tính 8-10 tiếng/ngày.</p>" +
+          "<p>• <b>Mặt tích nước (Puffy Face):</b> Do ăn gia vị mặn nhiều natri, uống thiếu nước lọc, thức khuya làm tăng hormone Cortisol gây sưng mặt.</p>" +
+          "<p>• <b>Chiến lược cốt lõi:</b> <b>KHÔNG NHỊN ĐÓI</b>. Ăn đủ 120g protein để giữ cơ bắp, tập kháng lực tại nhà 4 buổi/tuần và uống đủ 2.8L nước lọc để thon gọn mặt sau 10-14 ngày.</p>";
+        document.getElementById('card-diagnosis-content').innerHTML = diagHtml;
+        document.getElementById('eval-diagnosis-content').innerHTML = diagHtml;
+
+        // Phases
+        const phasesCardHtml = 
+          "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 1: Xả nước & Thon mặt (Tuần 1-2)</span><span class='text-emerald-400'>-1.5kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Cắt giảm gia vị mặn, uống đủ 2.8L nước lọc, ngủ trước 23h30. Mặt thon gọn rõ rệt.</p>" +
+          "</div>" +
+          "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 2: Siết mỡ bụng dưới (Tuần 3-6)</span><span class='text-emerald-400'>-3.5kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Giữ chuẩn 1.550 kcal, tập đều 4 bài bụng/kháng lực và đi bộ 8.000 bước/ngày.</p>" +
+          "</div>" +
+          "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 3: Về đích 62kg & Săn chắc (Tuần 7-9)</span><span class='text-emerald-400'>-2.0kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Bụng phẳng, săn cơ toàn thân, tạo lối sống kỷ luật duy trì vĩnh viễn.</p>" +
+          "</div>";
+        document.getElementById('card-phases-container').innerHTML = phasesCardHtml;
+
+        const phasesModalHtml = 
+          "<div class='p-2.5 rounded-xl bg-zinc-50 border border-zinc-100'>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-zinc-900 mb-0.5'><span>Giai đoạn 1: Xả nước & Thon mặt (Tuần 1 - 2)</span><span class='text-emerald-600'>-1.5kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Cắt giảm gia vị mặn, uống đủ 2.8L nước lọc, ngủ trước 23h30. Mặt sẽ gọn rõ rệt sau 10 ngày.</p>" +
+          "</div>" +
+          "<div class='p-2.5 rounded-xl bg-zinc-50 border border-zinc-100'>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-zinc-900 mb-0.5'><span>Giai đoạn 2: Siết mỡ bụng dưới (Tuần 3 - 6)</span><span class='text-emerald-600'>-3.5kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Duy trì đều đặn 1.550 kcal, tập đều 4 bài bụng/kháng lực và tích cực đi bộ 8.000 bước/ngày.</p>" +
+          "</div>" +
+          "<div class='p-2.5 rounded-xl bg-zinc-50 border border-zinc-100'>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-zinc-900 mb-0.5'><span>Giai đoạn 3: Về đích 62kg & Săn chắc cơ (Tuần 7 - 9)</span><span class='text-emerald-600'>-2.0kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Cơ bụng phẳng lì, người săn gọn, thiết lập thói quen ăn uống lành mạnh duy trì vĩnh viễn.</p>" +
+          "</div>";
+        document.getElementById('eval-phases-container').innerHTML = phasesModalHtml;
+
+        // Rules
+        const rulesHtml = 
+          "<li>Ăn theo thứ tự: <b>Rau xanh ➔ Thịt/Cá ➔ Cơm/Khoai</b> để hạ đường huyết chống tích mỡ.</li>" +
+          "<li>Cắt bỏ 100% nước ngọt, trà sữa, bánh ngọt; hạn chế tối đa rượu bia.</li>" +
+          "<li>Đi bộ tối thiểu <b>8.000 bước/ngày</b> (đứng dậy sau mỗi 45 phút ngồi làm việc).</li>" +
+          "<li>Uống 1 cốc nước ấm lớn ngay sau khi ngủ dậy và trước các bữa ăn 15 phút.</li>";
+        document.getElementById('card-rules-list').innerHTML = rulesHtml;
+        document.getElementById('eval-rules-list').innerHTML = rulesHtml;
+
+      } else {
+        // OANH
+        document.getElementById('card-bmi-val').textContent = "20.8";
+        document.getElementById('eval-bmi-val').textContent = "20.8";
+        document.getElementById('card-bmi-status').textContent = "Siết Idol";
+        document.getElementById('eval-bmi-status').textContent = "Cân đối ➔ Siết chuẩn Idol";
+        document.getElementById('card-bmi-status').className = "text-[8px] font-bold text-rose-400 block mt-0.5";
+        document.getElementById('eval-bmi-status').className = "text-[9px] font-bold text-rose-500 block mt-0.5";
+
+        document.getElementById('card-bmr-val').textContent = "1.250";
+        document.getElementById('eval-bmr-val').textContent = "1.250";
+
+        document.getElementById('card-tdee-val').textContent = "1.680";
+        document.getElementById('eval-tdee-val').textContent = "1.680";
+
+        document.getElementById('card-target-cal').textContent = "1.200";
+        document.getElementById('eval-target-cal').textContent = "1.200";
+
+        document.getElementById('card-cal-diff').textContent = "Thâm hụt -480";
+        document.getElementById('eval-cal-diff').textContent = "Thâm hụt -480";
+
+        document.getElementById('card-water-val').textContent = "2.2L";
+        document.getElementById('eval-water-val').textContent = "2.2L";
+
+        document.getElementById('card-weight-goal').textContent = "-8.0 kg";
+        document.getElementById('eval-weight-goal').textContent = "-8.0 kg";
+
+        document.getElementById('card-days-goal').textContent = "30 ngày";
+        document.getElementById('eval-days-goal').textContent = "Cấp tốc 30 ngày";
+
+        // Diagnosis
+        const diagHtml = 
+          "<p>• <b>Mục tiêu 52kg ➔ 44kg trong 30 ngày:</b> Đây là tốc độ ép cân cấp tốc (-8kg trong 1 tháng). Cần giữ đủ chất đạm và vi khoáng để da dẻ hồng hào, không xơ tóc hay mệt mỏi.</p>" +
+          "<p>• <b>Cơ chế giảm 30 ngày:</b> 10 ngày đầu đào thải ~3kg nước thừa và glycogen; 20 ngày sau đốt mỡ tập trung ở eo, hông và bắp đùi.</p>" +
+          "<p>• <b>Chiến lược cốt lõi:</b> Cắt tinh bột sau 18:30; ăn đạm nạc (ức gà, tôm, trứng) để săn chắc mông ngực; tập Pilates thở Stomach Vacuum siết eo con kiến.</p>";
+        document.getElementById('card-diagnosis-content').innerHTML = diagHtml;
+        document.getElementById('eval-diagnosis-content').innerHTML = diagHtml;
+
+        // Phases
+        const phasesCardHtml = 
+          "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 1: Xả nước & Thanh lọc (Ngày 1-10)</span><span class='text-rose-400'>-3.0kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Cắt gia vị mặn, uống đủ 2.2L nước. Bụng xẹp phẳng và mặt thon gọn.</p>" +
+          "</div>" +
+          "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 2: Đốt mỡ đùi & Nâng mông (Ngày 11-20)</span><span class='text-rose-400'>-2.5kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Tập Glute Bridge, Donkey Kicks và Cardio Tabata 30p mỗi ngày.</p>" +
+          "</div>" +
+          "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 3: Siết eo & Chạm mốc 44kg (Ngày 21-30)</span><span class='text-rose-400'>-2.5kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Khóa rãnh bụng số 11, thon gọn bắp chân và giữ vóc dáng idol.</p>" +
+          "</div>";
+        document.getElementById('card-phases-container').innerHTML = phasesCardHtml;
+
+        const phasesModalHtml = 
+          "<div class='p-2.5 rounded-xl bg-rose-50/70 border border-rose-100'>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 1: Xả nước & Thanh lọc (Ngày 1 - 10)</span><span class='text-rose-600'>-3.0kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Cắt hoàn toàn đường, đồ chấm mặn. Bụng xẹp phẳng và mặt thon gọn rõ rệt.</p>" +
+          "</div>" +
+          "<div class='p-2.5 rounded-xl bg-rose-50/70 border border-rose-100'>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 2: Đốt mỡ đùi & Nâng mông (Ngày 11 - 20)</span><span class='text-rose-600'>-2.5kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Tập trung Glute Bridge, Donkey Kicks và Cardio Tabata 30p mỗi ngày.</p>" +
+          "</div>" +
+          "<div class='p-2.5 rounded-xl bg-rose-50/70 border border-rose-100'>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 3: Siết eo & Chạm mốc 44kg (Ngày 21 - 30)</span><span class='text-rose-600'>-2.5kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Khóa chặt rãnh bụng số 11, bắp chân thon thả và giữ vững vóc dáng idol.</p>" +
+          "</div>";
+        document.getElementById('eval-phases-container').innerHTML = phasesModalHtml;
+
+        // Rules
+        const rulesHtml = 
+          "<li><b>Cắt tinh bột hoàn toàn buổi tối:</b> Bữa tối chỉ ăn salad ức gà/tôm/đậu phụ và canh rau.</li>" +
+          "<li>Uống đủ <b>2.0 - 2.2 lít nước lọc</b> mỗi ngày (uống từng ngụm nhỏ rải đều trong ngày).</li>" +
+          "<li>Thực hiện <b>Stomach Vacuum (hóp thở bụng)</b> 4 hiệp mỗi sáng để thắt nhỏ vòng eo.</li>" +
+          "<li>Không được nhịn đói dưới 1.000 kcal để đảm bảo an toàn sức khỏe và sắc đẹp nữ giới.</li>";
+        document.getElementById('card-rules-list').innerHTML = rulesHtml;
+        document.getElementById('eval-rules-list').innerHTML = rulesHtml;
+      }
+    }
+
+    function openEvaluationModal() {
+      updateEvaluationOverviewUI();
+      document.getElementById('eval-modal').classList.remove('hidden');
+    }
+
+    function closeEvaluationModal() {
+      document.getElementById('eval-modal').classList.add('hidden');
     }
 
     window.addEventListener('DOMContentLoaded', () => {
