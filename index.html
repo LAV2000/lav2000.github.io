@@ -541,6 +541,8 @@
           <button onclick="selectWorkoutDay('t4')" id="day-t4" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">T4: Phục hồi</button>
           <button onclick="selectWorkoutDay('t5')" id="day-t5" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">T5: Buổi 3</button>
           <button onclick="selectWorkoutDay('t6')" id="day-t6" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">T6: Đốt mỡ</button>
+          <button onclick="selectWorkoutDay('t7')" id="day-t7" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">T7: Cuối tuần</button>
+          <button onclick="selectWorkoutDay('cn')" id="day-cn" class="day-btn px-4 py-2 rounded-2xl bg-zinc-100 text-zinc-600 text-xs font-bold shrink-0 transition-all">CN: Thư giãn</button>
         </div>
 
         <div class="bg-zinc-900 text-white rounded-3xl p-4 mb-3 shadow-lg relative overflow-hidden">
@@ -1666,6 +1668,26 @@
             { name: "Squat Jumps (Bật nhảy tại chỗ)", reps: "4 hiệp × 12 cái", tip: "Tiêu hao calo cực khủng" },
             { name: "Plank Jacks (Plank bật tách chân)", reps: "4 hiệp × 40 giây", tip: "Ổn định cơ bụng" }
           ]
+        },
+        t7: {
+          title: "Thứ 7: Cardio Ngoài Trời & Siết Cơ Bụng (Outdoor Burn - 45 phút)",
+          subtitle: "Tiêu hao calo tuần, tăng sức bền tim phổi và đốt mỡ bụng cứng đầu",
+          exercises: [
+            { name: "Chạy bộ chậm hoặc Đi bộ dốc ngoài trời", reps: "35 - 40 phút", tip: "Duy trì nhịp tim Zone 2 để đốt mỡ tối đa" },
+            { name: "V-ups (Gập bụng chữ V)", reps: "3 hiệp × 15 cái", tip: "Siết chặt cơ bụng trên và dưới" },
+            { name: "Side Plank (Plank nghiêng)", reps: "3 hiệp × 30s/bên", tip: "Khóa chặt cơ liên sườn, thu gọn hông eo" },
+            { name: "Căng duỗi cơ chân và lưng dưới", reps: "10 phút", tip: "Phục hồi gân kheo và thắt lưng" }
+          ]
+        },
+        cn: {
+          title: "Chủ Nhật: Phục Hồi Toàn Diện & Chuẩn Bị Tuần Mới (Rest & Reload)",
+          subtitle: "Thả lỏng thần kinh, nạp lại năng lượng cho chu kỳ đốt mỡ tuần tới",
+          exercises: [
+            { name: "Đi bộ thư giãn nhẹ nhàng (Light Walk)", reps: "20 - 30 phút", tip: "Hít thở sâu, nạp oxy tươi sảng khoái" },
+            { name: "Giãn cơ Yoga sâu (Deep Stretching)", reps: "15 phút", tip: "Mở khớp háng, giãn cơ ngực và vai" },
+            { name: "Ngâm chân nước ấm trước khi ngủ", reps: "15 - 20 phút", tip: "Giảm phù nề, ngủ sâu để cơ thể tiết GH đốt mỡ" },
+            { name: "Meal Prep tuần mới (Ức gà / rau xanh / trứng)", reps: "30 phút", tip: "Chuẩn bị sẵn để không bị vỡ kế hoạch calo thâm hụt" }
+          ]
         }
       },
       oanh: {
@@ -1719,6 +1741,27 @@
             { name: "Skater Hops (Nhảy trượt băng nhẹ nhàng)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Siết thon hông và đùi ngoài" },
             { name: "High Knees (Nâng cao đùi đốt calo)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Đẩy nhịp tim đốt mỡ thần tốc" },
             { name: "Plank Jacks (Bật tách chân kiểm soát)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Khóa chặt toàn bộ cơ thể" }
+          ]
+        },
+        t7: {
+          title: "Thứ 7: Cardio Thon Gọn & Đẩy Cao Đỉnh Mông (Burn & Shape - 40 phút)",
+          subtitle: "Thiết kế cho 1m55: Đốt mỡ gia tốc, nâng mông võng lưng tạo cảm giác chân dài",
+          exercises: [
+            { name: "Nhảy dây nhẹ nhàng hoặc Pogo Hops", reps: "4 vòng (40s nhảy - 20s nghỉ)", tip: "Kích hoạt hệ bạch huyết, giảm tích nước toàn thân" },
+            { name: "Pulsing Glute Bridge (Nâng hông nhấp đỉnh)", reps: "4 hiệp × 25 cái", tip: "Chỉ kích hoạt mông trên, đẩy mông cao mà đùi không to" },
+            { name: "Standing Side Leg Raise (Đứng đá chân ngang)", reps: "3 hiệp × 20 cái/chân", tip: "Lấp hõm mông hai bên, thon hông mặc váy body" },
+            { name: "Scissor Kicks (Nằm cắt kéo trên không)", reps: "4 hiệp × 30 giây", tip: "Rút mỡ bụng dưới phẳng lỳ, thon đùi trong" },
+            { name: "Stomach Vacuum (Thở sâu hóp bụng con kiến)", reps: "4 hiệp × 25 giây", tip: "Bí quyết ép eo dưới 58cm" }
+          ]
+        },
+        cn: {
+          title: "Chủ Nhật: Active Rest & Yoga Kéo Dài Sợi Cơ (Slimming Recovery)",
+          subtitle: "Thải sạch muối thừa xẹp bọng mặt, giãn dài cơ chân thanh thoát",
+          exercises: [
+            { name: "Đi dạo công viên thư giãn (8.000 bước)", reps: "40 phút", tip: "Đốt 200 kcal tự nhiên, thư thái tinh thần" },
+            { name: "Yoga Kéo Dài Cơ Chân (Lengthening Stretch)", reps: "15 phút", tip: "Kéo giãn cơ bắp chuối và gân kheo, chống thô chân" },
+            { name: "Ngâm chân thảo mộc / nước ấm", reps: "15 phút", tip: "Tăng tuần hoàn máu, xả nước phù nề mắt cá và bàn chân" },
+            { name: "Detox cần tây + dưa leo hoặc chanh ấm", reps: "1 ly lớn", tip: "Thanh lọc cơ thể, xả muối ứ tích tụ trong tuần" }
           ]
         }
       }
