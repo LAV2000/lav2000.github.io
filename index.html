@@ -94,7 +94,7 @@
                 <h3 id="eval-card-title" class="text-xs font-bold text-white">Đánh giá & Lộ trình: Lương Anh Văn</h3>
                 <span id="eval-card-tag" class="text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500 text-black uppercase">Skinny-Fat</span>
               </div>
-              <p id="eval-card-quick-metrics" class="text-[10px] text-zinc-400 mt-0.5">BMI 23.6 • BMR 1.630 • Nạp 1.550 kcal • Nước 2.8L</p>
+              <p id="eval-card-quick-metrics" class="text-[10px] text-zinc-400 mt-0.5">1m71 • BMI 23.6 • BMR 1.630 • Nạp 1.550 kcal • Nước 2.8L</p>
             </div>
           </div>
           <div class="flex items-center gap-1 shrink-0">
@@ -134,7 +134,7 @@
               <div class="bg-zinc-900 border border-zinc-800 p-2 rounded-2xl text-center">
                 <span class="text-[8.5px] text-zinc-400 font-bold uppercase block">Mục tiêu Nước</span>
                 <span id="card-water-val" class="text-sm font-black text-blue-400">2.8L</span>
-                <span class="text-[8px] font-semibold text-blue-400 block mt-0.5">Tiêu phù nề</span>
+                <span id="card-water-sub" class="text-[8px] font-semibold text-blue-400 block mt-0.5">Tiêu phù nề</span>
               </div>
               <div class="bg-zinc-900 border border-zinc-800 p-2 rounded-2xl text-center">
                 <span class="text-[8.5px] text-zinc-400 font-bold uppercase block">Mục tiêu Giảm</span>
@@ -146,8 +146,8 @@
 
           <!-- Diagnosis -->
           <div class="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-2.5">
-            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">2. ĐÁNH GIÁ THỂ TRẠNG & TÍCH MỠ</span>
-            <div id="card-diagnosis-content" class="text-[10.5px] text-zinc-300 space-y-1 leading-relaxed"></div>
+            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">2. ĐÁNH GIÁ THỂ TRẠNG & TÍCH MỠ THEO CHIỀU CAO</span>
+            <div id="card-diagnosis-content" class="text-[10.5px] text-zinc-300 space-y-1.5 leading-relaxed"></div>
           </div>
 
           <!-- 3 Phases Roadmap -->
@@ -170,11 +170,11 @@
       </div>
     </div>
 
-    <!-- Notice for aggressive 30-day goal for Oanh -->
+    <!-- Notice for aggressive 30-day goal for Oanh (Height: 1m55) -->
     <div id="oanh-safety-alert" class="hidden bg-rose-50 border-b border-rose-200/70 px-4 py-2 flex items-start gap-2 text-[10.5px] text-rose-800 shrink-0">
       <span class="text-sm">⚠️</span>
       <div>
-        <b>Mục tiêu ép cân 30 ngày (52kg ➔ 44kg):</b> Cắt giảm muối tối đa, ăn 1.150 - 1.200 kcal & cardio 40p mỗi ngày. Uống đủ 2.2L nước để cơ thể săn gọn, không suy kiệt!
+        <b>Mục tiêu ép cân 30 ngày cho nữ 1m55 (52kg ➔ 44kg):</b> Cắt giảm muối tối đa, ăn 1.150 - 1.200 kcal & tập Pilates/cardio thon chân 40p mỗi ngày. Uống đủ 2.2L nước để cơ thể săn gọn, không suy kiệt!
       </div>
     </div>
 
@@ -616,7 +616,7 @@
               <div class="bg-zinc-50 border border-zinc-100 p-2.5 rounded-2xl text-center">
                 <span class="text-[9px] text-zinc-400 font-bold uppercase block">Mục tiêu Nước</span>
                 <span id="eval-water-val" class="text-base font-black text-blue-600">2.8L</span>
-                <span class="text-[9px] font-semibold text-blue-500 block mt-0.5">Tiêu phù nề</span>
+                <span id="eval-water-sub" class="text-[9px] font-semibold text-blue-500 block mt-0.5">Tiêu phù nề</span>
               </div>
               <div class="bg-zinc-50 border border-zinc-100 p-2.5 rounded-2xl text-center">
                 <span class="text-[9px] text-zinc-400 font-bold uppercase block">Mục tiêu Giảm</span>
@@ -628,7 +628,7 @@
 
           <!-- 2. Diagnosis & Body Analysis -->
           <div class="bg-zinc-50 border border-zinc-100 rounded-2xl p-3.5">
-            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1.5">2. ĐÁNH GIÁ THỂ TRẠNG & NGUYÊN NHÂN TÍCH MỠ</span>
+            <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider block mb-1.5">2. ĐÁNH GIÁ THỂ TRẠNG & NGUYÊN NHÂN TÍCH MỠ THEO CHIỀU CAO</span>
             <div id="eval-diagnosis-content" class="text-[11px] text-zinc-700 space-y-1.5 leading-relaxed"></div>
           </div>
 
@@ -662,7 +662,7 @@
         <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
           <div>
             <h3 class="text-sm font-bold text-zinc-900">Thiết lập lộ trình: <span id="settings-profile-name">Văn</span></h3>
-            <p class="text-[11px] text-zinc-400">Ngày bắt đầu, cân nặng & thời gian</p>
+            <p class="text-[11px] text-zinc-400">Chiều cao, ngày bắt đầu, cân nặng & thời gian</p>
           </div>
           <button onclick="closeSettingsModal()" class="w-7 h-7 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 font-bold hover:bg-zinc-200">✕</button>
         </div>
@@ -681,9 +681,13 @@
             <input type="date" id="config-start-date" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl p-2.5 font-bold text-zinc-800" />
           </div>
 
-          <div class="grid grid-cols-2 gap-3">
+          <div class="grid grid-cols-3 gap-2">
             <div>
-              <label class="font-bold text-zinc-700 block mb-1">Cân bắt đầu (kg):</label>
+              <label class="font-bold text-zinc-700 block mb-1">Chiều cao (cm):</label>
+              <input type="number" id="config-height" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl p-2.5 font-bold text-zinc-800" />
+            </div>
+            <div>
+              <label class="font-bold text-zinc-700 block mb-1">Bắt đầu (kg):</label>
               <input type="number" step="0.1" id="config-start-weight" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl p-2.5 font-bold text-zinc-800" />
             </div>
             <div>
@@ -787,7 +791,7 @@
       return tomorrow.toISOString().split('T')[0];
     }
 
-    // Default Profile Definitions
+    // Default Profile Definitions: Van (1m71) & Oanh (1m55)
     const DEFAULT_PROFILES = {
       van: {
         id: "van",
@@ -795,7 +799,7 @@
         shortName: "Văn",
         gender: "male",
         age: 26,
-        height: 171,
+        height: 171, // 1m71
         startWeight: 69.0,
         targetWeight: 62.0,
         startDate: getTomorrowStr(),
@@ -814,11 +818,11 @@
         shortName: "Oanh",
         gender: "female",
         age: 25,
-        height: 158,
+        height: 155, // Chiều cao: 1m55 chuẩn xác
         startWeight: 52.0,
         targetWeight: 44.0,
         startDate: getTomorrowStr(),
-        totalDays: 30,
+        totalDays: 30, // 30 ngày ép cân
         dailyCalories: 1200,
         dailyWater: 2.2,
         dialMode: 'weight',
@@ -856,10 +860,12 @@
       if (allProfiles.van) {
         allProfiles.van.name = "Lương Anh Văn";
         allProfiles.van.shortName = "Văn";
+        allProfiles.van.height = allProfiles.van.height || 171;
       }
       if (allProfiles.oanh) {
         allProfiles.oanh.name = "Đào Phương Oanh";
         allProfiles.oanh.shortName = "Oanh";
+        allProfiles.oanh.height = 155; // Luôn đảm bảo 1m55
       }
     }
 
@@ -933,7 +939,7 @@
         ? "w-2 h-2 rounded-full bg-emerald-500 animate-pulse" 
         : "w-2 h-2 rounded-full bg-rose-500 animate-pulse";
 
-      // 30-day safety banner for Oanh
+      // 30-day safety banner for Oanh (Height: 1m55)
       const safetyAlert = document.getElementById('oanh-safety-alert');
       if (p.id === 'oanh') {
         safetyAlert.classList.remove('hidden');
@@ -975,7 +981,7 @@
 
       // 4. Analytics metrics
       document.getElementById('metric-calorie-sub').textContent = "Mục tiêu: " + p.dailyCalories + " kcal";
-      document.getElementById('metric-deficit').textContent = isVan ? "-450" : "-500";
+      document.getElementById('metric-deficit').textContent = isVan ? "-450" : "-450";
       document.getElementById('gauge-title').textContent = "Tiến độ " + p.startWeight + "kg ➔ " + p.targetWeight + "kg";
       document.getElementById('metric-total-days-sub').textContent = "/" + p.totalDays;
 
@@ -985,12 +991,13 @@
       document.getElementById('habit-water-title').textContent = isVan 
         ? "Uống 2.8L nước lọc (Tiêu sưng mặt)" 
         : "Uống 2.2L nước lọc (Đào thải mỡ thừa)";
-      document.getElementById('habit-workout-title').textContent = isVan ? "Tập Thân trên & Bụng (35p)" : "Cardio đốt mỡ & Eo thon (40p)";
+      document.getElementById('habit-workout-title').textContent = isVan ? "Tập Thân trên & Bụng (35p)" : "Pilates & Cardio eo thon (40p)";
       document.getElementById('habit-workout-sub').textContent = isVan ? "Hít đất, Plank, Gập bụng theo lịch" : "Squat thon chân, mông đào, eo con kiến";
       document.getElementById('habit-steps-title').textContent = isVan ? "8.000 bước vận động" : "10.000 bước đi bộ đốt mỡ";
 
       // 6. Workout plan header & day buttons styling
-      document.getElementById('plan-subtitle').textContent = "Thiết kế cho " + p.name + " (" + (p.gender === 'male' ? 'Nam' : 'Nữ') + " • " + p.startWeight + "kg ➔ " + p.targetWeight + "kg trong " + p.totalDays + " ngày)";
+      const hStr = p.height ? (" • " + (p.height >= 100 ? (p.height/100).toFixed(2) + "m" : p.height + "cm")) : "";
+      document.getElementById('plan-subtitle').textContent = "Thiết kế cho " + p.name + " (" + (p.gender === 'male' ? 'Nam' : 'Nữ') + " • " + p.age + " tuổi" + hStr + " • " + p.startWeight + "kg ➔ " + p.targetWeight + "kg trong " + p.totalDays + " ngày)";
       
       updateGreeting();
       setDialMode(p.dialMode || 'weight');
@@ -1078,7 +1085,7 @@
         document.getElementById('meal-lunch').value = "1/2 bát cơm gạo lứt + 120g ức gà xé/tôm hấp + đĩa lớn súp lơ xanh luộc (420 kcal)";
         document.getElementById('meal-snack').value = "1 hộp sữa chua Hy Lạp / không đường + 1/2 quả táo xanh (150 kcal)";
         document.getElementById('meal-dinner').value = "Salad ức gà/đậu phụ sốt giấm táo + canh bí đao thịt nạc (350 kcal)";
-        showToast("Đã điền thực đơn ép mỡ 1.200 kcal cho Oanh!");
+        showToast("Đã điền thực đơn ép mỡ 1.200 kcal cho Oanh (1m55)!");
       }
     }
 
@@ -1489,6 +1496,7 @@
       const p = getCurProfile();
       document.getElementById('settings-profile-name').textContent = p.name;
       document.getElementById('config-start-date').value = p.startDate;
+      document.getElementById('config-height').value = p.height || (p.id === 'van' ? 171 : 155);
       document.getElementById('config-start-weight').value = p.startWeight;
       document.getElementById('config-target-weight').value = p.targetWeight;
       document.getElementById('config-total-days').value = p.totalDays;
@@ -1506,6 +1514,7 @@
     function saveSettings() {
       const p = getCurProfile();
       p.startDate = document.getElementById('config-start-date').value;
+      p.height = parseInt(document.getElementById('config-height').value) || p.height;
       p.startWeight = parseFloat(document.getElementById('config-start-weight').value) || p.startWeight;
       p.targetWeight = parseFloat(document.getElementById('config-target-weight').value) || p.targetWeight;
       p.totalDays = parseInt(document.getElementById('config-total-days').value) || p.totalDays;
@@ -1601,7 +1610,7 @@
       showToast("Đã lưu cân nặng ngày " + date + " cho " + p.shortName + "!");
     }
 
-    // Workout Plans Database: Tailored for Male (Van) & Female 30-day Slim (Oanh)
+    // Workout Plans Database: Tailored for Male (Van 1m71) & Female 30-day Slim (Oanh 1m55)
     const workoutDatabase = {
       van: {
         t2: {
@@ -1661,55 +1670,55 @@
       },
       oanh: {
         t2: {
-          title: "Thứ 2: Eo thon con kiến & Bụng phẳng (35 phút)",
-          subtitle: "Thu nhỏ vòng eo, đốt mỡ bụng dưới cho nữ",
+          title: "Thứ 2: Eo thon con kiến & Rãnh bụng 11 (35 phút)",
+          subtitle: "Thiết kế cho 1m55: Thắt nhỏ vòng eo, kéo dài tỷ lệ thân",
           exercises: [
-            { name: "Khởi động vặn mình & xoay hông", reps: "5 phút", tip: "Kích hoạt cơ liên sườn" },
-            { name: "Jumping Jacks (Nhảy bật nhẹ)", reps: "3 hiệp × 40 cái", tip: "Tăng nhịp tim đốt calo" },
-            { name: "Plank chống khuỷu tay", reps: "3 hiệp × 45 giây", tip: "Hóp chặt rốn vào cột sống" },
-            { name: "Russian Twist (Xoay eo siết rãnh)", reps: "3 hiệp × 24 cái", tip: "Siết chặt cơ liên sườn" },
-            { name: "Bicycle Crunches (Đạp xe)", reps: "3 hiệp × 20 cái", tip: "Đốt mỡ bụng trên và dưới" },
-            { name: "Stomach Vacuum (Hóp thở sâu)", reps: "4 hiệp × 20 giây", tip: "Bí quyết thắt nhỏ vòng eo" }
+            { name: "Khởi động vặn mình Pilates & xoay hông", reps: "5 phút", tip: "Làm mềm cơ liên sườn" },
+            { name: "Jumping Jacks (Nhảy nhẹ tăng nhịp tim)", reps: "3 hiệp × 40 cái", tip: "Đốt calo khởi động" },
+            { name: "Stomach Vacuum (Hóp thở sâu rút bụng)", reps: "4 hiệp × 20 giây", tip: "Bí quyết thắt nhỏ eo dưới 60cm" },
+            { name: "Plank tĩnh chống khuỷu tay", reps: "3 hiệp × 45 giây", tip: "Hóp chặt rốn sát cột sống" },
+            { name: "Russian Twist không tạ (Siết eo)", reps: "3 hiệp × 24 cái", tip: "Tạo rãnh bụng số 11 hai bên" },
+            { name: "Bicycle Crunches (Đạp xe trên không)", reps: "3 hiệp × 20 cái", tip: "Đánh tan mỡ bụng dưới ngồi nhiều" }
           ]
         },
         t3: {
-          title: "Thứ 3: Chân thon & Mông quả đào (40 phút)",
-          subtitle: "Săn chắc đùi trong, nâng mông cao không to bắp chân",
+          title: "Thứ 3: Chân thon & Mông quả đào (Tạo hiệu ứng chân dài)",
+          subtitle: "Nâng cao đỉnh mông, tuyệt đối không làm to bắp đùi/bắp chân",
           exercises: [
-            { name: "Glute Bridge (Nâng hông siết mông)", reps: "4 hiệp × 20 cái", tip: "Gồng chặt mông ở đỉnh 2 giây" },
-            { name: "Donkey Kicks (Đá lừa nâng mông)", reps: "3 hiệp × 15 cái/chân", tip: "Tạo độ cao tròn cho mông" },
-            { name: "Fire Hydrant (Mở rộng khớp hông)", reps: "3 hiệp × 15 cái/chân", tip: "Đốt mỡ đùi ngoài và hõm hông" },
-            { name: "Sumo Squat (Xoay mũi chân 45 độ)", reps: "3 hiệp × 15 cái", tip: "Săn chắc đùi trong thon gọn" },
-            { name: "Calf Raises (Nhón gót nhẹ)", reps: "3 hiệp × 25 cái", tip: "Giúp mắt cá và bắp chân thanh thoát" }
+            { name: "Glute Bridge (Nằm nâng hông siết mông)", reps: "4 hiệp × 20 cái", tip: "Gồng chặt đỉnh mông 2 giây" },
+            { name: "Donkey Kicks (Đá lừa nâng cao mông)", reps: "3 hiệp × 15 cái/chân", tip: "Đẩy đỉnh mông cao giúp chân trông dài hơn" },
+            { name: "Fire Hydrant (Mở khớp hông siết hõm)", reps: "3 hiệp × 15 cái/chân", tip: "Lấp đầy hõm hông, thon gọn đùi ngoài" },
+            { name: "Sumo Squat không tạ (Xoay mũi chân 45°)", reps: "3 hiệp × 15 cái", tip: "Săn chắc đùi trong, không thô bắp chân" },
+            { name: "Calf Raises chậm (Nhón nhẹ gót chân)", reps: "3 hiệp × 25 cái", tip: "Giúp cổ chân và mắt cá thanh thoát" }
           ]
         },
         t4: {
           title: "Thứ 4: Đi bộ dốc & Giãn cơ Pilates (45 phút)",
-          subtitle: "Đốt calo vùng mỡ cứng và thư giãn cơ bắp",
+          subtitle: "Đốt mỡ vùng cứng & Kéo dài sợi cơ cho nữ 1m55",
           exercises: [
-            { name: "Đi bộ nhanh hoặc chạy bộ nhẹ", reps: "35 phút", tip: "Đốt 250 kcal nhẹ nhàng" },
-            { name: "Giãn cơ chân & thắt lưng Yoga", reps: "10 phút", tip: "Chống thô bắp chân sau tập" },
-            { name: "Uống 1 ly nước cần tây / dưa chuột", reps: "1 ly lớn", tip: "Đào thải muối tích nước mặt & bụng" }
+            { name: "Đi bộ dốc nhanh (Incline Walk)", reps: "35 phút", tip: "Đốt 250 kcal nhẹ nhàng, không to chân" },
+            { name: "Giãn cơ Yoga chân & thắt lưng", reps: "10 phút", tip: "Giúp cơ thon dài, không bị vón cục" },
+            { name: "Uống 1 ly nước chanh ấm / dưa chuột", reps: "1 ly lớn", tip: "Thải sạch muối ứ, mặt thon V-line" }
           ]
         },
         t5: {
           title: "Thứ 5: Bắp tay thon & Lưng thanh thoát (35 phút)",
-          subtitle: "Loại bỏ mỡ nách và mỡ lưng sau áo lót",
+          subtitle: "Triệt tiêu mỡ nách và mỡ lưng sau áo lót",
           exercises: [
-            { name: "Knee Push-ups (Hít đất quỳ gối)", reps: "3 hiệp × 10 cái", tip: "Nữ tập nhẹ nhàng săn ngực" },
-            { name: "Arm Circles (Xoay tròn cánh tay)", reps: "3 hiệp × 40 vòng", tip: "Bắp tay thon nhỏ không nhão" },
-            { name: "Tricep Dips ghế sofa", reps: "3 hiệp × 12 cái", tip: "Hết bắp tay vẫy mỡ" },
-            { name: "Plank Shoulder Taps (Chạm vai)", reps: "3 hiệp × 16 cái", tip: "Ổn định toàn thân săn chắc" }
+            { name: "Knee Push-ups (Hít đất quỳ gối nhẹ nhàng)", reps: "3 hiệp × 10 cái", tip: "Nâng cao vòng 1 tự nhiên" },
+            { name: "Arm Circles (Xoay tròn cánh tay Pilates)", reps: "3 hiệp × 40 vòng", tip: "Bắp tay thon nhỏ không bị nhão" },
+            { name: "Chair Dips sofa (Chống tay sau thon bắp)", reps: "3 hiệp × 12 cái", tip: "Hết mỡ cánh tay khi mặc áo sát nách" },
+            { name: "Plank Shoulder Taps (Chạm vai nhịp nhàng)", reps: "3 hiệp × 16 cái", tip: "Toàn thân săn chắc gọn gàng" }
           ]
         },
         t6: {
-          title: "Thứ 6: HIIT Tabata Nữ Đốt Mỡ Thần Tốc (30 phút)",
-          subtitle: "Đốt mỡ liên tục 24h sau khi tập",
+          title: "Thứ 6: HIIT Tabata Nữ Đốt Mỡ Cấp Tốc (30 phút)",
+          subtitle: "Đốt mỡ liên tục 24h sau tập, chạm nhanh mốc 44kg",
           exercises: [
-            { name: "Mountain Climbers (Leo núi)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Siết bụng phẳng lì" },
-            { name: "Skater Hops (Nhảy trượt băng)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Thon đùi ngoài & eo" },
-            { name: "High Knees (Nâng cao đùi)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Đốt cháy calo tối đa" },
-            { name: "Plank Jacks (Bật tách chân)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Siết toàn bộ cơ thể" }
+            { name: "Mountain Climbers (Leo núi nhịp nhàng)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Bụng phẳng lỳ không mỡ thừa" },
+            { name: "Skater Hops (Nhảy trượt băng nhẹ nhàng)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Siết thon hông và đùi ngoài" },
+            { name: "High Knees (Nâng cao đùi đốt calo)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Đẩy nhịp tim đốt mỡ thần tốc" },
+            { name: "Plank Jacks (Bật tách chân kiểm soát)", reps: "4 vòng (30s tập - 20s nghỉ)", tip: "Khóa chặt toàn bộ cơ thể" }
           ]
         }
       }
@@ -1846,19 +1855,21 @@
         ? "w-7 h-7 rounded-full bg-white text-black text-xs font-black flex items-center justify-center shrink-0" 
         : "w-7 h-7 rounded-full bg-rose-500 text-white text-xs font-black flex items-center justify-center shrink-0";
 
-      document.getElementById('eval-card-title').textContent = "Đánh giá & Lộ trình: " + p.name;
+      const hFormatted = p.height ? ((p.height >= 100 ? (p.height/100).toFixed(2) + "m" : p.height + "cm")) : (isVan ? "1m71" : "1m55");
+      document.getElementById('eval-card-title').textContent = "Đánh giá & Lộ trình: " + p.name + " (" + (isVan ? "Nam • 26t • " : "Nữ • 25t • ") + hFormatted + ")";
+      
       const tagEl = document.getElementById('eval-card-tag');
-      tagEl.textContent = isVan ? "Skinny-Fat (60 ngày)" : "Siết Idol (30 ngày)";
+      tagEl.textContent = isVan ? "Skinny-Fat (60 ngày)" : "Siết Idol 1m55 (30 ngày)";
       tagEl.className = isVan 
         ? "text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500 text-black uppercase" 
         : "text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-rose-500 text-white uppercase";
 
       document.getElementById('eval-card-quick-metrics').textContent = isVan 
-        ? "BMI 23.6 • BMR 1.630 • Nạp 1.550 kcal • Nước 2.8L" 
-        : "BMI 20.8 • BMR 1.250 • Nạp 1.200 kcal • Nước 2.2L";
+        ? "1m71 • BMI 23.6 • BMR 1.630 • Nạp 1.550 kcal • Nước 2.8L" 
+        : "1m55 • BMI 21.6 ➔ 18.3 • BMR 1.205 • Nạp 1.200 kcal • Nước 2.2L";
 
       // Modal Header
-      document.getElementById('eval-modal-name').textContent = p.name + " (" + (isVan ? "Nam • 26 tuổi" : "Nữ • 25 tuổi") + ")";
+      document.getElementById('eval-modal-name').textContent = p.name + " (" + (isVan ? "Nam • 26 tuổi • Chiều cao: 1m71" : "Nữ • 25 tuổi • Chiều cao: 1m55") + ")";
       const modalAvatar = document.getElementById('eval-modal-avatar');
       modalAvatar.textContent = p.shortName.charAt(0);
       modalAvatar.className = isVan 
@@ -1888,6 +1899,8 @@
 
         document.getElementById('card-water-val').textContent = "2.8L";
         document.getElementById('eval-water-val').textContent = "2.8L";
+        document.getElementById('card-water-sub').textContent = "Tiêu phù nề";
+        document.getElementById('eval-water-sub').textContent = "Tiêu phù nề";
 
         document.getElementById('card-weight-goal').textContent = "-7.0 kg";
         document.getElementById('eval-weight-goal').textContent = "-7.0 kg";
@@ -1897,7 +1910,7 @@
 
         // Diagnosis
         const diagHtml = 
-          "<p>• <b>Thể trạng Skinny-Fat văn phòng:</b> Khung người ít cơ, tỷ lệ mỡ nội tạng cao tích tụ ở <b>bụng dưới</b> do ngồi máy tính 8-10 tiếng/ngày.</p>" +
+          "<p>• <b>Thể trạng Skinny-Fat văn phòng:</b> Cao 1m71, khung người ít cơ, tỷ lệ mỡ nội tạng cao tích tụ ở <b>bụng dưới</b> do ngồi máy tính 8-10 tiếng/ngày.</p>" +
           "<p>• <b>Mặt tích nước (Puffy Face):</b> Do ăn gia vị mặn nhiều natri, uống thiếu nước lọc, thức khuya làm tăng hormone Cortisol gây sưng mặt.</p>" +
           "<p>• <b>Chiến lược cốt lõi:</b> <b>KHÔNG NHỊN ĐÓI</b>. Ăn đủ 120g protein để giữ cơ bắp, tập kháng lực tại nhà 4 buổi/tuần và uống đủ 2.8L nước lọc để thon gọn mặt sau 10-14 ngày.</p>";
         document.getElementById('card-diagnosis-content').innerHTML = diagHtml;
@@ -1944,28 +1957,34 @@
         document.getElementById('eval-rules-list').innerHTML = rulesHtml;
 
       } else {
-        // OANH
-        document.getElementById('card-bmi-val').textContent = "20.8";
-        document.getElementById('eval-bmi-val').textContent = "20.8";
-        document.getElementById('card-bmi-status').textContent = "Siết Idol";
-        document.getElementById('eval-bmi-status').textContent = "Cân đối ➔ Siết chuẩn Idol";
+        // OANH (1m55, 52kg ➔ 44kg)
+        // BMI = 52 / (1.55)^2 = 21.6 (Cân đối ➔ Siết chuẩn Idol 18.3 khi về 44kg)
+        document.getElementById('card-bmi-val').textContent = "21.6";
+        document.getElementById('eval-bmi-val').textContent = "21.6";
+        document.getElementById('card-bmi-status').textContent = "Siết Idol 18.3";
+        document.getElementById('eval-bmi-status').textContent = "Cân đối ➔ Siết chuẩn Idol (18.3)";
         document.getElementById('card-bmi-status').className = "text-[8px] font-bold text-rose-400 block mt-0.5";
         document.getElementById('eval-bmi-status').className = "text-[9px] font-bold text-rose-500 block mt-0.5";
 
-        document.getElementById('card-bmr-val').textContent = "1.250";
-        document.getElementById('eval-bmr-val').textContent = "1.250";
+        // BMR Mifflin-St Jeor: 10*52 + 6.25*155 - 5*25 - 161 = 1.205 kcal
+        document.getElementById('card-bmr-val').textContent = "1.205";
+        document.getElementById('eval-bmr-val').textContent = "1.205";
 
-        document.getElementById('card-tdee-val').textContent = "1.680";
-        document.getElementById('eval-tdee-val').textContent = "1.680";
+        // TDEE = 1.205 * 1.375 = 1.650 kcal
+        document.getElementById('card-tdee-val').textContent = "1.650";
+        document.getElementById('eval-tdee-val').textContent = "1.650";
 
+        // Target Calories = 1.200 kcal
         document.getElementById('card-target-cal').textContent = "1.200";
         document.getElementById('eval-target-cal').textContent = "1.200";
 
-        document.getElementById('card-cal-diff').textContent = "Thâm hụt -480";
-        document.getElementById('eval-cal-diff').textContent = "Thâm hụt -480";
+        document.getElementById('card-cal-diff').textContent = "Thâm hụt -450";
+        document.getElementById('eval-cal-diff').textContent = "Thâm hụt -450";
 
         document.getElementById('card-water-val').textContent = "2.2L";
         document.getElementById('eval-water-val').textContent = "2.2L";
+        document.getElementById('card-water-sub').textContent = "Thải muối & mỡ";
+        document.getElementById('eval-water-sub').textContent = "Thải muối & mỡ thừa";
 
         document.getElementById('card-weight-goal').textContent = "-8.0 kg";
         document.getElementById('eval-weight-goal').textContent = "-8.0 kg";
@@ -1973,51 +1992,52 @@
         document.getElementById('card-days-goal').textContent = "30 ngày";
         document.getElementById('eval-days-goal').textContent = "Cấp tốc 30 ngày";
 
-        // Diagnosis
+        // Diagnosis tailored specifically for height 1m55
         const diagHtml = 
-          "<p>• <b>Mục tiêu 52kg ➔ 44kg trong 30 ngày:</b> Đây là tốc độ ép cân cấp tốc (-8kg trong 1 tháng). Cần giữ đủ chất đạm và vi khoáng để da dẻ hồng hào, không xơ tóc hay mệt mỏi.</p>" +
-          "<p>• <b>Cơ chế giảm 30 ngày:</b> 10 ngày đầu đào thải ~3kg nước thừa và glycogen; 20 ngày sau đốt mỡ tập trung ở eo, hông và bắp đùi.</p>" +
-          "<p>• <b>Chiến lược cốt lõi:</b> Cắt tinh bột sau 18:30; ăn đạm nạc (ức gà, tôm, trứng) để săn chắc mông ngực; tập Pilates thở Stomach Vacuum siết eo con kiến.</p>";
+          "<p>• <b>Thể trạng & Đặc thù chiều cao 1m55:</b> Với chiều cao 1m55 và cân nặng 52kg, chỉ số BMI hiện tại là <b>21.6</b> (thuộc ngưỡng cân đối chuẩn châu Á). Tuy nhiên, ở phom người 1m55, chiều dài đôi chân khiêm tốn nên khi có mỡ thừa ở <b>bụng dưới, bắp đùi trong và bắp tay</b>, vóc dáng sẽ dễ bị cảm giác tròn người và thấp đi.</p>" +
+          "<p>• <b>Mục tiêu 52kg ➔ 44kg (BMI 18.3 - Chuẩn Idol):</b> Mức 44kg là 'tỷ lệ vàng' cho nữ 1m55 với phom dáng 'mình hạc sương mai', vòng eo con kiến dưới 60cm. Khi đạt 44kg, tỷ lệ thân trên - thân dưới trở nên thanh thoát, tạo hiệu ứng thị giác chân trông dài thêm 3 - 5cm.</p>" +
+          "<p>• <b>Chiến lược cốt lõi cho 1m55:</b> Tuyệt đối <b>KHÔNG TẬP TẠ NẶNG</b> (tránh làm to đùi/bắp chân). Tập trung bài tập <i>Pilates</i> thon dài dải cơ (lean muscle), bài tập thở <i>Stomach Vacuum</i> thắt nhỏ eo, và động tác nâng mông cao (Glute Bridge, Donkey Kicks) để đẩy đỉnh mông lên cao tạo đường cong S-line quyến rũ.</p>";
         document.getElementById('card-diagnosis-content').innerHTML = diagHtml;
         document.getElementById('eval-diagnosis-content').innerHTML = diagHtml;
 
-        // Phases
+        // Phases tailored for 1m55
         const phasesCardHtml = 
           "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
-            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 1: Xả nước & Thanh lọc (Ngày 1-10)</span><span class='text-rose-400'>-3.0kg</span></div>" +
-            "<p class='text-[9.5px] text-zinc-400'>Cắt gia vị mặn, uống đủ 2.2L nước. Bụng xẹp phẳng và mặt thon gọn.</p>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 1: Xả nước ứ, thon mặt & xẹp bụng (Ngày 1-10)</span><span class='text-rose-400'>-3.0kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Cắt gia vị mặn, uống 2.2L nước ấm. Bụng xẹp phẳng, đường nét cằm V-line lộ rõ (52kg ➔ 49kg).</p>" +
           "</div>" +
           "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
-            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 2: Đốt mỡ đùi & Nâng mông (Ngày 11-20)</span><span class='text-rose-400'>-2.5kg</span></div>" +
-            "<p class='text-[9.5px] text-zinc-400'>Tập Glute Bridge, Donkey Kicks và Cardio Tabata 30p mỗi ngày.</p>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 2: Đốt mỡ đùi & Nâng cao cơ mông (Ngày 11-20)</span><span class='text-rose-400'>-2.5kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Pilates thon chân + Cardio Tabata 35p không tạ. Nâng cao mông tạo hiệu ứng chân dài (49kg ➔ 46.5kg).</p>" +
           "</div>" +
           "<div class='p-2 rounded-xl bg-zinc-900 border border-zinc-800'>" +
-            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 3: Siết eo & Chạm mốc 44kg (Ngày 21-30)</span><span class='text-rose-400'>-2.5kg</span></div>" +
-            "<p class='text-[9.5px] text-zinc-400'>Khóa rãnh bụng số 11, thon gọn bắp chân và giữ vóc dáng idol.</p>" +
+            "<div class='flex items-center justify-between text-[10.5px] font-bold text-white mb-0.5'><span>GĐ 3: Siết eo con kiến & Chạm mốc 44kg (Ngày 21-30)</span><span class='text-rose-400'>-2.5kg</span></div>" +
+            "<p class='text-[9.5px] text-zinc-400'>Khóa rãnh bụng số 11, bắp chân nuột nà, đạt chuẩn phom Idol 1m55 - 44kg thanh thoát (46.5kg ➔ 44kg).</p>" +
           "</div>";
         document.getElementById('card-phases-container').innerHTML = phasesCardHtml;
 
         const phasesModalHtml = 
           "<div class='p-2.5 rounded-xl bg-rose-50/70 border border-rose-100'>" +
-            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 1: Xả nước & Thanh lọc (Ngày 1 - 10)</span><span class='text-rose-600'>-3.0kg</span></div>" +
-            "<p class='text-[10px] text-zinc-500'>Cắt hoàn toàn đường, đồ chấm mặn. Bụng xẹp phẳng và mặt thon gọn rõ rệt.</p>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 1: Xả nước ứ, thon mặt & xẹp bụng (Ngày 1 - 10)</span><span class='text-rose-600'>-3.0kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Cắt hoàn toàn đường & gia vị mặn, uống 2.2L nước ấm. Bụng xẹp phẳng và khuôn mặt thon gọn V-line rõ rệt.</p>" +
           "</div>" +
           "<div class='p-2.5 rounded-xl bg-rose-50/70 border border-rose-100'>" +
-            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 2: Đốt mỡ đùi & Nâng mông (Ngày 11 - 20)</span><span class='text-rose-600'>-2.5kg</span></div>" +
-            "<p class='text-[10px] text-zinc-500'>Tập trung Glute Bridge, Donkey Kicks và Cardio Tabata 30p mỗi ngày.</p>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 2: Đốt mỡ đùi trong & Nâng cơ mông quả đào (Ngày 11 - 20)</span><span class='text-rose-600'>-2.5kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Tập trung Glute Bridge, Donkey Kicks và Cardio Tabata 35p không tạ. Nâng cao mông giúp đôi chân trông dài hơn hẳn.</p>" +
           "</div>" +
           "<div class='p-2.5 rounded-xl bg-rose-50/70 border border-rose-100'>" +
-            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 3: Siết eo & Chạm mốc 44kg (Ngày 21 - 30)</span><span class='text-rose-600'>-2.5kg</span></div>" +
-            "<p class='text-[10px] text-zinc-500'>Khóa chặt rãnh bụng số 11, bắp chân thon thả và giữ vững vóc dáng idol.</p>" +
+            "<div class='flex items-center justify-between text-[11px] font-bold text-rose-900 mb-0.5'><span>Giai đoạn 3: Khóa rãnh bụng số 11 & Chạm mốc 44kg (Ngày 21 - 30)</span><span class='text-rose-600'>-2.5kg</span></div>" +
+            "<p class='text-[10px] text-zinc-500'>Thu nhỏ vòng eo con kiến dưới 60cm, bắp chân thanh thoát và giữ vững chuẩn vóc dáng idol mình hạc sương mai.</p>" +
           "</div>";
         document.getElementById('eval-phases-container').innerHTML = phasesModalHtml;
 
-        // Rules
+        // Rules tailored for Oanh 1m55
         const rulesHtml = 
-          "<li><b>Cắt tinh bột hoàn toàn buổi tối:</b> Bữa tối chỉ ăn salad ức gà/tôm/đậu phụ và canh rau.</li>" +
+          "<li><b>Cắt tinh bột hoàn toàn sau 18:30:</b> Bữa tối chỉ ăn salad ức gà/tôm/đậu phụ và canh rau mát.</li>" +
           "<li>Uống đủ <b>2.0 - 2.2 lít nước lọc</b> mỗi ngày (uống từng ngụm nhỏ rải đều trong ngày).</li>" +
-          "<li>Thực hiện <b>Stomach Vacuum (hóp thở bụng)</b> 4 hiệp mỗi sáng để thắt nhỏ vòng eo.</li>" +
-          "<li>Không được nhịn đói dưới 1.000 kcal để đảm bảo an toàn sức khỏe và sắc đẹp nữ giới.</li>";
+          "<li>Thực hiện <b>Stomach Vacuum (hóp thở cơ hoành)</b> 4 hiệp mỗi sáng để thắt nhỏ vòng eo con kiến.</li>" +
+          "<li>Đi bộ tối thiểu <b>10.000 bước/ngày</b> để tăng tiêu hao mỡ thừa mà không bị thô bắp chân.</li>" +
+          "<li>Không nhịn đói dưới 1.000 kcal để bảo toàn chu kỳ kinh nguyệt và giúp da dẻ luôn hồng hào.</li>";
         document.getElementById('card-rules-list').innerHTML = rulesHtml;
         document.getElementById('eval-rules-list').innerHTML = rulesHtml;
       }
